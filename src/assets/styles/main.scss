@@ -1,0 +1,41 @@
+:root {
+  --color-default-black: #000000;
+  --color-default-white: #ffffff;
+  --color-nobel: #999999;
+  --color-can-can: #d27ea7;
+  --color-mulberry: #db5597;
+  --color-deep-pink: #ff0080;
+  --color-electric-purple: #9900ff;
+  --color-indigo: #6201a3;
+  --color-bright-grey: #5b5e64;
+
+  // svg
+  --color-summer-sky: #37aee2; // telegram
+  --color-scooter: #2d84aa; // telegram:hover
+  --color-sky-blue: #7fcdee; // telegram:active
+
+
+  --color-lime-green: #45d354; // whatsapp
+  --color-fruit-salad: #34a740; // whatsapp:hover
+  --color-pastel-green: #75e581; // whatsapp:active
+
+
+  --color-havelock-blue: #5281b8; // vk
+  --color-wedgewood: #40638c; // vk:hover
+  --color-jordy-blue: #86b0e1; // vk:active
+}
+
+
+body {
+  /*font-family: 'CormorantGaramond-Regular', Arial, sans-serif;*/
+  font-weight: 400;
+  background: var(--color-default-white);
+  font-size: 20px;
+  color: var(--color-default-black);
+}
+
+a {
+  transition: all .3s ease-in-out;
+  display: inline-block;
+  border: 1px solid transparent;
+}

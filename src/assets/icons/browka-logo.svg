@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg baseProfile="full" height="512px" version="1.1" width="512px" xmlns="http://www.w3.org/2000/svg">
+    <defs/>
+    <circle cx="256px" cy="256px" fill="#E6E6FA" r="256px"/>
+    <ellipse cx="256px" cy="260px" fill="none" rx="80px" ry="40px" stroke="#800080" stroke-width="5"/>
+    <circle cx="256px" cy="260px" fill="#800080" r="20px"/>
+    <path d="M196,220 Q256,180 316,220" fill="none" stroke="#800080" stroke-linecap="round" stroke-width="9"/>
+    <text fill="#000000" font-family="Arial" font-size="70px" x="150px" y="400px">Browka</text>
+</svg>

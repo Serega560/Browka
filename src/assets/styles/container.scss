@@ -1,0 +1,17 @@
+@use '@/assets/styles/media.scss' as *;
+
+.container {
+  width: 100%;
+  max-width: 1460px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  //@include vp-1199 {
+  //  padding: 0 45px;
+  //}
+
+  @include vp-767 {
+    width: 100%;
+    padding: 0 15px;
+  }
+}
