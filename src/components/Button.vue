@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <a href="#" class="button">Записаться</a>
+  <a href="https://wa.me/79261283908" class="button">Записаться</a>
 </template>
 
 <style scoped lang="scss">

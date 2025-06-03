@@ -20,15 +20,7 @@ export default defineConfig({
       symbolId: 'icon-[name]',
     }),
   ],
-
-  // css: {
-  //   preprocessorOptions: {
-  //     scss: {
-  //       additionalData: `@use "@/assets/styles/variables.scss" as *;`
-  //     }
-  //   }
-  // },
-
+  base: '/Browka/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

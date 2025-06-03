@@ -8,8 +8,6 @@
       <div class="hero__block">
         <h1 class="hero__title">Студия перманентного макияжа</h1>
         <p class="hero__text">Екатерина Плисенко</p>
-
-          <!--          <a class="hero__button" href="#">Рассчитать стоимость процедуры</a>-->
       </div>
     </div>
   </div>

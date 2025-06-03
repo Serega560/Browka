@@ -23,26 +23,26 @@ const galleries = [
     price: '7000p',
     autoplayDelay: 3000,
     images: [
-      '/img/swiper-photo/photo_1.1.jpg',
-      '/img/swiper-photo/photo_1.2.jpg',
-      '/img/swiper-photo/photo_1.3.jpg',
-      '/img/swiper-photo/photo_1.4.jpg',
-      '/img/swiper-photo/photo_1.5.jpg',
-      '/img/swiper-photo/photo_1.6.jpg'
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.1.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.2.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.3.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.4.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.5.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.6.jpg'
     ]
   },
   {
     id: 2,
-    title: 'Перманентный макияж бровей. Аппаратное напыление',
+    title: 'Перманентный макияж бровей. Аппаратные волоски.',
     price: '9000p',
     autoplayDelay: 3500,
     images: [
-      '/img/swiper-photo/photo_2.1.jpg',
-      '/img/swiper-photo/photo_2.2.jpg',
-      '/img/swiper-photo/photo_2.3.jpg',
-      '/img/swiper-photo/photo_2.4.jpg',
-      '/img/swiper-photo/photo_2.5.jpg',
-      '/img/swiper-photo/photo_2.6.jpg'
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.1.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.2.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.3.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.4.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.5.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.6.jpg'
     ]
   },
   {
@@ -51,12 +51,12 @@ const galleries = [
     price: '7000p',
     autoplayDelay: 3800,
     images: [
-      '/img/swiper-photo/photo_3.1.jpg',
-      '/img/swiper-photo/photo_3.2.jpg',
-      '/img/swiper-photo/photo_3.3.jpg',
-      '/img/swiper-photo/photo_3.4.jpg',
-      '/img/swiper-photo/photo_3.5.jpg',
-      '/img/swiper-photo/photo_3.6.jpg'
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.1.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.2.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.3.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.4.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.5.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.6.jpg'
     ]
   },
   {
@@ -65,15 +65,15 @@ const galleries = [
     price: '7000p',
     autoplayDelay: 3300,
     images: [
-      '/img/swiper-photo/photo_4.1.jpg',
-      '/img/swiper-photo/photo_4.2.jpg',
-      '/img/swiper-photo/photo_4.3.jpg',
-      '/img/swiper-photo/photo_4.4.jpg',
-      '/img/swiper-photo/photo_4.5.jpg',
-      '/img/swiper-photo/photo_4.6.jpg',
-      '/img/swiper-photo/photo_4.7.jpg',
-      '/img/swiper-photo/photo_4.8.jpg',
-      '/img/swiper-photo/photo_4.9.jpg'
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.1.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.2.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.3.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.4.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.5.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.6.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.7.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.8.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.9.jpg'
     ]
   },
   {
@@ -82,26 +82,26 @@ const galleries = [
     price: '4000p',
     autoplayDelay: 3500,
     images: [
-      '/img/swiper-photo/photo_5.1.png',
-      '/img/swiper-photo/photo_5.2.png',
-      '/img/swiper-photo/photo_5.3.jpg',
-      '/img/swiper-photo/photo_5.4.jpg',
-      '/img/swiper-photo/photo_5.5.jpg',
-      '/img/swiper-photo/photo_5.6.jpg',
-      '/img/swiper-photo/photo_5.7.jpg',
-      '/img/swiper-photo/photo_5.8.jpg'
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.1.png',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.2.png',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.3.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.4.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.5.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.6.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.7.jpg',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.8.jpg'
     ]
   },
   {
     id: 6,
-    title: 'Ламинирование',
+    title: 'Ламинирование бровей и ресниц.',
     price: '3000p',
     autoplayDelay: 3000,
     images: [
-      '/img/swiper-photo/photo_6.1.png',
-      '/img/swiper-photo/photo_6.2.png',
-      '/img/swiper-photo/photo_6.3.png',
-      '/img/swiper-photo/photo_6.4.jpg'
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.1.png',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.2.png',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.3.png',
+      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.4.jpg'
     ]
   }
 ]
