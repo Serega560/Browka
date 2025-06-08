@@ -4,15 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/autoplay'
-import { ref, onMounted } from 'vue'
 import Button from '@/components/Button.vue'
-
-const swiperRef = ref(null)
-onMounted(() => {
-  if (swiperRef.value && swiperRef.value.swiper) {
-    swiperRef.value.swiper.autoplay.start()
-  }
-})
 
 const modules = [Autoplay]
 
@@ -23,13 +15,17 @@ const galleries = [
     price: '7000p',
     autoplayDelay: 3000,
     images: [
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.1.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.2.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.3.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.4.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.5.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_1.6.jpg'
-    ]
+      'photo_1.1.jpg',
+      'photo_1.2.jpg',
+      'photo_1.3.jpg',
+      'photo_1.4.jpg',
+      'photo_1.5.jpg',
+      'photo_1.6.jpg',
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
+      original: new URL(`../assets/img/${name}`, import.meta.url).href,
+    }))
   },
   {
     id: 2,
@@ -37,13 +33,17 @@ const galleries = [
     price: '9000p',
     autoplayDelay: 3500,
     images: [
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.1.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.2.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.3.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.4.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.5.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_2.6.jpg'
-    ]
+      'photo_2.1.jpg',
+      'photo_2.2.jpg',
+      'photo_2.3.jpg',
+      'photo_2.4.jpg',
+      'photo_2.5.jpg',
+      'photo_2.6.jpg',
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
+      original: new URL(`../assets/img/${name}`, import.meta.url).href,
+    }))
   },
   {
     id: 3,
@@ -51,13 +51,20 @@ const galleries = [
     price: '7000p',
     autoplayDelay: 3800,
     images: [
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.1.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.2.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.3.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.4.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.5.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_3.6.jpg'
-    ]
+      'photo_3.1.jpg',
+      'photo_3.2.jpg',
+      'photo_3.3.jpg',
+      'photo_3.4.jpg',
+      'photo_3.5.jpg',
+      'photo_3.6.jpg',
+      'photo_3.7.jpg',
+      'photo_3.8.jpg',
+      'photo_3.9.jpg',
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
+      original: new URL(`../assets/img/${name}`, import.meta.url).href,
+    }))
   },
   {
     id: 4,
@@ -65,16 +72,18 @@ const galleries = [
     price: '7000p',
     autoplayDelay: 3300,
     images: [
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.1.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.2.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.3.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.4.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.5.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.6.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.7.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.8.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_4.9.jpg'
-    ]
+      'photo_4.1.jpg',
+      'photo_4.2.jpg',
+      'photo_4.3.jpg',
+      'photo_4.4.jpg',
+      'photo_4.5.jpg',
+      'photo_4.6.jpg',
+      'photo_4.7.jpg',
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
+      original: new URL(`../assets/img/${name}`, import.meta.url).href,
+    }))
   },
   {
     id: 5,
@@ -82,15 +91,19 @@ const galleries = [
     price: '4000p',
     autoplayDelay: 3500,
     images: [
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.1.png',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.2.png',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.3.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.4.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.5.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.6.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.7.jpg',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_5.8.jpg'
-    ]
+      'photo_5.1.png',
+      'photo_5.2.png',
+      'photo_5.3.jpg',
+      'photo_5.4.jpg',
+      'photo_5.5.jpg',
+      'photo_5.6.jpg',
+      'photo_5.7.jpg',
+      'photo_5.8.jpg',
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
+      original: new URL(`../assets/img/${name}`, import.meta.url).href,
+    }))
   },
   {
     id: 6,
@@ -98,11 +111,15 @@ const galleries = [
     price: '3000p',
     autoplayDelay: 3000,
     images: [
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.1.png',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.2.png',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.3.png',
-      import.meta.env.BASE_URL + '/img/swiper-photo/photo_6.4.jpg'
-    ]
+      'photo_6.5.jpg',
+      'photo_6.6.jpg',
+      'photo_6.3.png',
+      'photo_6.4.jpg',
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
+      original: new URL(`../assets/img/${name}`, import.meta.url).href,
+    }))
   }
 ]
 
@@ -131,8 +148,8 @@ const galleries = [
                     :modules="modules"
                     :slides-per-view="3"
                     :loop="true"
-                    :autoplay="{ delay: item.autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: false }"
                     :speed="1000"
+                    :autoplay="{ delay: item.autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: false }"
                     :class="{ 'about__slide--left': id % 2 === 1 }"
                     space-between="10"
                     :breakpoints="{
@@ -140,9 +157,19 @@ const galleries = [
                       1440: {slidesPerView: 3}
                     }"
             >
-              <SwiperSlide v-for="(image, idx) in item.images"
-                           :key="idx">
-                <img :src="image" width="300" height="450" alt="фото бровей" />
+              <SwiperSlide v-for="(image, idx) in item.images" :key="idx">
+                <picture>
+                  <source
+                    :srcset="`${image.webp1x} 1x, ${image.webp2x} 2x`"
+                    type="image/webp"
+                  />
+                  <img
+                    :src="image.original"
+                    width="300"
+                    height="450"
+                    alt="фото услуги"
+                  />
+                </picture>
               </SwiperSlide>
 
             </Swiper>

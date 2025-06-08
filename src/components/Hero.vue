@@ -20,7 +20,7 @@
 .hero {
   height: 700px;
   background-color: var(--color-default-black);
-  background-image: url('../assets/img/12.jpg');
+  background-image: url('../assets/img/main.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 73%;
