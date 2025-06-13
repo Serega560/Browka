@@ -43,7 +43,7 @@ const menuItems = [
     </button>
 
     <transition name="menu">
-      <ul class="menu__list" v-show="isMenuOpen || isDesktop">
+      <ul class="menu__list menu__list--footer" v-show="isMenuOpen || isDesktop">
         <li
           v-for="(item, index) in menuItems"
           :key="index"
@@ -78,7 +78,7 @@ const menuItems = [
       order: 0;
 
       span {
-        background-color: var(--color-indigo);
+        background-color: var(--color-can-can);
         width: 44px;
         height: 2px;
         border-radius: 1px;
@@ -126,6 +126,10 @@ const menuItems = [
       padding: 30px 0;
     }
 
+    &--footer {
+      color: var(--color-default-white);
+    }
+
     .menu__link {
       font-size: 34px;
       padding: 10px 20px;
@@ -137,8 +141,8 @@ const menuItems = [
 
       &:hover {
         cursor: pointer;
-        color: var(--color-electric-purple);
-        border: 1px solid var(--color-default-black);
+        color: var(--color-mulberry);
+        transform: scale(1.1);
       }
     }
   }

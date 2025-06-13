@@ -42,6 +42,13 @@ import Vk from '@/assets/icons/vk.svg'
 
     a {
       padding: 14px 8px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        svg {
+          transform: scale(1.1);
+        }
+      }
 
       @include vp-767 {
         padding: 3px 2px;
@@ -62,11 +69,11 @@ import Vk from '@/assets/icons/vk.svg'
         color: var(--color-summer-sky);
       }
 
-      &:hover {
-        svg {
-          color: var(--color-scooter);
-        }
-      }
+      //&:hover {
+      //  svg {
+      //    color: var(--color-scooter);
+      //  }
+      //}
 
       &:active {
         svg {
@@ -83,11 +90,11 @@ import Vk from '@/assets/icons/vk.svg'
         color: var(--color-lime-green);
       }
 
-      &:hover {
-        svg {
-          color: var(--color-fruit-salad);
-        }
-      }
+      //&:hover {
+      //  svg {
+      //    color: var(--color-fruit-salad);
+      //  }
+      //}
 
       &:active {
         svg {
@@ -104,11 +111,11 @@ import Vk from '@/assets/icons/vk.svg'
         color: var(--color-havelock-blue);
       }
 
-      &:hover {
-        svg {
-          color: var(--color-wedgewood);
-        }
-      }
+      //&:hover {
+      //  svg {
+      //    color: var(--color-wedgewood);
+      //  }
+      //}
 
       &:active {
         svg {

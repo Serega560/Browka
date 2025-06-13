@@ -1,16 +1,15 @@
 <script setup>
-import Menu from '@/components/Menu.vue';
-import Social from '@/components/Social.vue';
+import Menu from '@/components/Menu.vue'
+import Social from '@/components/Social.vue'
+import Logo from '@/components/Logo.vue'
 </script>
 
 <template>
   <div class="header">
     <div class="container">
       <div class="header-block">
-        <a class="header__logo" href="#">
-          <img src="../assets/icons/browka-logo.svg" alt="Логотип" width="500" height="500">
-        </a>
 
+        <Logo />
         <Menu />
         <Social />
 
@@ -38,28 +37,6 @@ import Social from '@/components/Social.vue';
       padding: 8px 0;
     }
 
-    .header__logo {
-
-      @include vp-767 {
-        order: -2;
-      }
-
-      &:hover {
-        opacity: 0.8;
-      }
-
-      img {
-        border-radius: 50%;
-        width: 100px;
-        height: 100px;
-
-        @include vp-767 {
-          width: 40px;
-          height: 40px;
-        }
-      }
-    }
-
     .tel {
       display: flex;
       align-items: center;
@@ -69,7 +46,7 @@ import Social from '@/components/Social.vue';
       font-size: 30px;
 
       &:hover {
-        color: var(--color-electric-purple);
+        color: var(--color-mulberry);
       }
 
       @include vp-767 {
@@ -77,6 +54,7 @@ import Social from '@/components/Social.vue';
       }
     }
   }
+
 }
 
 </style>
