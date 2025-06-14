@@ -104,6 +104,7 @@ const reviews = [
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 100px;
+    color: var(--color-bright-grey);
 
     @include vp-767 {
       margin-bottom: 25px;

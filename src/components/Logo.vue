@@ -1,13 +1,13 @@
 <script setup>
+import LogoDs from '@/assets/icons/logo-ds.svg'
+import LogoMb from '@/assets/icons/logo-mb.svg'
 
 </script>
 
 <template>
   <a class="header__img" href="#">
-    <img class="header__logo header__logo-ds" src="../assets/icons/logo-ds.svg" alt="Логотип" width="50"
-         height="50">
-    <img class="header__logo header__logo-mb" src="../assets/icons/logo-mb.svg" alt="Логотип" width="50"
-         height="50">
+    <LogoDs class="header__logo header__logo-ds" />
+    <LogoMb class="header__logo header__logo-mb" />
   </a>
 </template>
 
@@ -23,8 +23,6 @@
 
   .header__logo-ds {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
 
     @include vp-767 {
       width: 40px;

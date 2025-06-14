@@ -26,6 +26,13 @@ onUnmounted(() => {
   window.removeEventListener('resize', onResize)
 })
 
+defineProps({
+  inFooter: {
+    type: Boolean,
+    default: false
+  }
+})
+
 const menuItems = [
   { label: 'Услуги', href: '#' },
   { label: 'Работы', href: '#' },
@@ -36,14 +43,22 @@ const menuItems = [
 
 <template>
   <nav class="header__menu menu">
-    <button class="menu__button" :class="{ active: isMenuOpen }" @click="toggleMenu">
+    <button
+      class="menu__button"
+      :class="{ active: isMenuOpen }"
+      @click="toggleMenu"
+      v-if="!inFooter"
+    >
       <span></span>
       <span></span>
       <span></span>
     </button>
 
     <transition name="menu">
-      <ul class="menu__list menu__list--footer" v-show="isMenuOpen || isDesktop">
+      <ul
+        class="menu__list"
+        :class="{ 'menu__list--footer': inFooter }"
+        v-show="inFooter ? true : (isMenuOpen || isDesktop)">
         <li
           v-for="(item, index) in menuItems"
           :key="index"
@@ -105,6 +120,7 @@ const menuItems = [
 
   .menu__list {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -113,37 +129,52 @@ const menuItems = [
     @include vp-767 {
       display: flex;
       position: absolute;
-      width: 100%;
+      width: 41%;
       flex-direction: column;
-      gap: 10px 0;
-      left: 0;
-      top: 65px;
+      gap: 15px 0;
+      right: 0;
+      top: 68px;
       text-align: right;
-      border-top: 1px solid var(--color-bright-grey);
-      border-bottom: 1px solid var(--color-bright-grey);
-      background-color: var(--color-default-white);
-      height: 410px;
+      border-top: 1px solid var(--color-default-white);
+      border-bottom: 1px solid var(--color-default-white);
+      background-color: var(--color-bright-grey);
+      height: 401px;
       padding: 30px 0;
-    }
-
-    &--footer {
-      color: var(--color-default-white);
     }
 
     .menu__link {
       font-size: 34px;
       padding: 10px 20px;
+      color: var(--color-default-white);
 
       @include vp-767 {
-        font-size: 24px;
-        color: var(--color-bright-grey);
+        font-size: 28px;
+        color: var(--color-default-white);
       }
 
       &:hover {
         cursor: pointer;
         color: var(--color-mulberry);
         transform: scale(1.1);
+
+        @include vp-767 {
+          color: var(--color-default-white);
+          transform: scale(1);
+        }
       }
+    }
+  }
+  .menu__list--footer {
+    all: unset;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    gap: 15px;
+
+    .menu__link {
+      color: white;
+      font-size: 20px;
+      align-self: flex-start;
     }
   }
 }

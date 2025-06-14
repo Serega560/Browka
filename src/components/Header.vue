@@ -2,6 +2,7 @@
 import Menu from '@/components/Menu.vue'
 import Social from '@/components/Social.vue'
 import Logo from '@/components/Logo.vue'
+import Telephone from '@/components/Telephone.vue'
 </script>
 
 <template>
@@ -12,8 +13,8 @@ import Logo from '@/components/Logo.vue'
         <Logo />
         <Menu />
         <Social />
+        <Telephone />
 
-        <a class="header__tel tel" href="tel:89261283908">+7 (926) 128-39-08</a>
       </div>
     </div>
   </div>
@@ -26,9 +27,11 @@ import Logo from '@/components/Logo.vue'
 .header {
   display: flex;
   justify-content: space-between;
+  background-color: var(--color-bright-grey);
 
   .header-block {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 15px 0;
@@ -36,25 +39,6 @@ import Logo from '@/components/Logo.vue'
     @include vp-767 {
       padding: 8px 0;
     }
-
-    .tel {
-      display: flex;
-      align-items: center;
-      box-sizing: border-box;
-      width: max-content;
-      padding: 12px 0;
-      font-size: 30px;
-
-      &:hover {
-        color: var(--color-mulberry);
-      }
-
-      @include vp-767 {
-        display: none;
-      }
-    }
   }
-
 }
-
 </style>

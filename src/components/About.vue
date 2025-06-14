@@ -12,7 +12,7 @@ const galleries = [
   {
     id: 1,
     title: 'Перманентный макияж бровей. Пудровое напыление',
-    price: '7000p',
+    price: '7000Р',
     autoplayDelay: 3000,
     images: [
       'photo_1.1.jpg',
@@ -30,7 +30,7 @@ const galleries = [
   {
     id: 2,
     title: 'Перманентный макияж бровей. Аппаратные волоски.',
-    price: '9000p',
+    price: '9000Р',
     autoplayDelay: 3500,
     images: [
       'photo_2.1.jpg',
@@ -48,7 +48,7 @@ const galleries = [
   {
     id: 3,
     title: 'Перманентный макияж век',
-    price: '7000p',
+    price: '7000Р',
     autoplayDelay: 3800,
     images: [
       'photo_3.1.jpg',
@@ -69,7 +69,7 @@ const galleries = [
   {
     id: 4,
     title: 'Перманентный макияж губ',
-    price: '7000p',
+    price: '7000Р',
     autoplayDelay: 3300,
     images: [
       'photo_4.1.jpg',
@@ -88,7 +88,7 @@ const galleries = [
   {
     id: 5,
     title: 'Мини тату',
-    price: '4000p',
+    price: '4000Р',
     autoplayDelay: 3500,
     images: [
       'photo_5.1.png',
@@ -108,7 +108,7 @@ const galleries = [
   {
     id: 6,
     title: 'Ламинирование бровей и ресниц.',
-    price: '3000p',
+    price: '3000Р',
     autoplayDelay: 3000,
     images: [
       'photo_6.5.jpg',
@@ -196,6 +196,7 @@ const galleries = [
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 100px;
+    color: var(--color-bright-grey);
 
     @include vp-767 {
       font-size: 28px;
@@ -241,25 +242,27 @@ const galleries = [
 
     @include vp-767 {
       width: 100%;
-      gap: 10px;
-      align-items: center;
+      gap: 10px 20px;
+      justify-content: start;
     }
 
     .about__subtitle {
       font-size: 30px;
       width: 450px;
       text-transform: uppercase;
+      color: var(--color-bright-grey);
 
       @include vp-767 {
         font-size: 16px;
         text-transform: inherit;
-        width: 100%;
+        width: 60%;
         font-weight: 400;
-        text-align: center;
       }
     }
 
     .about__price {
+      color: var(--color-bright-grey);
+
       @include vp-767 {
         font-size: 18px;
         font-weight: 400;

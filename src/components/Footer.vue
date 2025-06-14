@@ -10,7 +10,7 @@ import Menu from '@/components/Menu.vue'
     <div class="footer__block">
 
       <Logo />
-      <Menu />
+      <Menu :inFooter="true" />
       <Social />
 
     </div>
@@ -23,7 +23,7 @@ import Menu from '@/components/Menu.vue'
 @use '@/assets/styles/container' as *;
 
 .footer {
-  background-color: var(--color-default-black);
+  background-color: var(--color-bright-grey);
   padding: 120px 0;
 
   @include vp-767 {
