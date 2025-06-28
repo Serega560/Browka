@@ -17,7 +17,7 @@
   width: max-content;
   padding: 12px 0;
   font-size: 30px;
-  color: var(--color-default-white);
+  color: var(--color-bright-grey);
 
   &:hover {
     color: var(--color-mulberry);

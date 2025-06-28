@@ -1,5 +1,4 @@
 <script setup>
-
 </script>
 
 <template>
@@ -18,19 +17,18 @@
 @use '@/assets/styles/container' as *;
 
 .hero {
-  height: 700px;
+  height: 800px;
   background-color: var(--color-default-black);
-  background-image: url('../assets/img/main.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/img/main.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 73%;
+  background-position: center 78%;
 
   @include vp-767 {
     background-position: center center;
     height: 400px;
     width: auto;
   }
-
 
   .hero__block {
     display: flex;

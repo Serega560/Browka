@@ -4,6 +4,7 @@ import Hero from '@/components/Hero.vue';
 import About from '@/components/About.vue';
 import Reviews from '@/components/Reviews.vue';
 import Footer from '@/components/Footer.vue'
+import Map from '@/components/Map.vue'
 
 </script>
 
@@ -12,6 +13,7 @@ import Footer from '@/components/Footer.vue'
   <Hero />
   <About />
   <Reviews />
+  <Map />
   <Footer />
 </template>
 

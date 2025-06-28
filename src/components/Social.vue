@@ -1,10 +1,18 @@
 <script setup>
 import WhatsappIcon from '@/assets/icons/whatsapp.svg'
 import Vk from '@/assets/icons/vk.svg'
+
+defineProps({
+  position: {
+    type: String,
+    default: 'header',
+    validator: (value) => ['header', 'footer'].includes(value)
+  }
+})
 </script>
 
 <template>
-  <ul class="header__social social">
+  <ul :class="['social', `social--${position}`]">
     <li class="social__item social__item--telegram">
       <a href="https://t.me/katerina_browka">
         <svg width="30" height="30" viewBox="0 0 30 30">
@@ -31,14 +39,14 @@ import Vk from '@/assets/icons/vk.svg'
 .social {
   display: flex;
   gap: 0 3px;
-
-  @include vp-767 {
-    gap: 0 8px;
-    order: -1;
-  }
+  align-items: flex-start;
 
   .social__item {
     cursor: pointer;
+
+    @include vp-767 {
+      height: 40px;
+    }
 
     a {
       padding: 14px 8px;
@@ -64,16 +72,9 @@ import Vk from '@/assets/icons/vk.svg'
 
   .social__item--telegram {
     a {
-
       svg {
         color: var(--color-summer-sky);
       }
-
-      //&:hover {
-      //  svg {
-      //    color: var(--color-scooter);
-      //  }
-      //}
 
       &:active {
         svg {
@@ -85,16 +86,9 @@ import Vk from '@/assets/icons/vk.svg'
 
   .social__item--whatsapp {
     a {
-
       svg {
         color: var(--color-lime-green);
       }
-
-      //&:hover {
-      //  svg {
-      //    color: var(--color-fruit-salad);
-      //  }
-      //}
 
       &:active {
         svg {
@@ -106,20 +100,39 @@ import Vk from '@/assets/icons/vk.svg'
 
   .social__item--vk {
     a {
-
       svg {
         color: var(--color-havelock-blue);
       }
 
-      //&:hover {
-      //  svg {
-      //    color: var(--color-wedgewood);
-      //  }
-      //}
-
       &:active {
         svg {
           color: var(--color-jordy-blue);
+        }
+      }
+    }
+  }
+
+  &--header {
+    @include vp-767 {
+      gap: 0 8px;
+      order: -1;
+    }
+  }
+
+  &--footer {
+    @include vp-767 {
+      order: 1;
+      flex-direction: column;
+      gap: 30px 0;
+      margin-top: 8px;
+    }
+
+    .social__item {
+      a {
+        @include vp-767 {
+          padding: 0;
+          border: 0;
+          font-size: 0;
         }
       }
     }

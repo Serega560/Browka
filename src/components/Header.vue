@@ -12,7 +12,7 @@ import Telephone from '@/components/Telephone.vue'
 
         <Logo />
         <Menu />
-        <Social />
+        <Social position="header"/>
         <Telephone />
 
       </div>
@@ -27,14 +27,14 @@ import Telephone from '@/components/Telephone.vue'
 .header {
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-bright-grey);
+  background-color: var(--color-default-white);
 
   .header-block {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 0;
+    padding: 20px 0;
 
     @include vp-767 {
       padding: 8px 0;

@@ -117,7 +117,6 @@ const menuItems = [
     }
   }
 
-
   .menu__list {
     display: flex;
     flex-wrap: wrap;
@@ -129,52 +128,57 @@ const menuItems = [
     @include vp-767 {
       display: flex;
       position: absolute;
-      width: 41%;
+      width: 42%;
       flex-direction: column;
       gap: 15px 0;
       right: 0;
-      top: 68px;
+      top: 66px;
       text-align: right;
-      border-top: 1px solid var(--color-default-white);
-      border-bottom: 1px solid var(--color-default-white);
       background-color: var(--color-bright-grey);
-      height: 401px;
+      height: 400px;
       padding: 30px 0;
     }
 
     .menu__link {
       font-size: 34px;
       padding: 10px 20px;
-      color: var(--color-default-white);
+      color: var(--color-bright-grey);
 
       @include vp-767 {
-        font-size: 28px;
+        font-size: 26px;
         color: var(--color-default-white);
       }
 
       &:hover {
         cursor: pointer;
         color: var(--color-mulberry);
-        transform: scale(1.1);
 
         @include vp-767 {
           color: var(--color-default-white);
-          transform: scale(1);
         }
       }
     }
   }
+
   .menu__list--footer {
     all: unset;
     display: flex;
     list-style: none;
-    flex-direction: column;
     gap: 15px;
+
+    @include vp-767 {
+      flex-direction: column;
+    }
 
     .menu__link {
       color: white;
-      font-size: 20px;
+      font-size: 34px;
       align-self: flex-start;
+
+      @include vp-767 {
+        font-size: 20px;
+        width: 85px;
+      }
     }
   }
 }

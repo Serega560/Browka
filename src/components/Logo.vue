@@ -16,6 +16,8 @@ import LogoMb from '@/assets/icons/logo-mb.svg'
 @use '@/assets/styles/container' as *;
 
 .header__img {
+  border: none;
+  align-self: flex-start;
 
   @include vp-767 {
     order: -2;
@@ -23,6 +25,8 @@ import LogoMb from '@/assets/icons/logo-mb.svg'
 
   .header__logo-ds {
     border-radius: 50%;
+    width: 85px;
+    height: 85px;
 
     @include vp-767 {
       width: 40px;

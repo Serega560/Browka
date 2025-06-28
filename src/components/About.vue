@@ -98,7 +98,6 @@ const galleries = [
       'photo_5.5.jpg',
       'photo_5.6.jpg',
       'photo_5.7.jpg',
-      'photo_5.8.jpg',
     ].map(name => ({
       webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
@@ -111,10 +110,13 @@ const galleries = [
     price: '3000Р',
     autoplayDelay: 3000,
     images: [
-      'photo_6.5.jpg',
-      'photo_6.6.jpg',
+      'photo_6.1.png',
+      'photo_6.2.png',
       'photo_6.3.png',
       'photo_6.4.jpg',
+      'photo_6.5.jpg',
+      'photo_6.6.jpg',
+      'photo_6.7.jpg',
     ].map(name => ({
       webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
@@ -138,10 +140,10 @@ const galleries = [
           <div class="about__main">
             <div class="about__subtitle-price">
               <h3 class="about__subtitle">{{ item.title }}</h3>
-              <p class="about__price">{{ item.price }}</p>
-
-              <Button />
-
+              <div class="about__price-button">
+                <p class="about__price">{{ item.price }}</p>
+                <Button />
+              </div>
             </div>
 
             <Swiper class="about__swiper"
@@ -173,6 +175,7 @@ const galleries = [
               </SwiperSlide>
 
             </Swiper>
+
           </div>
         </li>
       </ul>
@@ -195,11 +198,11 @@ const galleries = [
     font-size: 45px;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     color: var(--color-bright-grey);
 
     @include vp-767 {
-      font-size: 28px;
+      font-size: 24px;
       margin-bottom: 25px;
     }
   }
@@ -237,13 +240,14 @@ const galleries = [
     flex-wrap: wrap;
     font-size: 35px;
     font-weight: 600;
-    gap: 0 20px;
     justify-content: center;
+    align-items: center;
+    text-align: center;
 
     @include vp-767 {
       width: 100%;
-      gap: 10px 20px;
       justify-content: start;
+      gap: 20px 0;
     }
 
     .about__subtitle {
@@ -253,21 +257,33 @@ const galleries = [
       color: var(--color-bright-grey);
 
       @include vp-767 {
-        font-size: 16px;
+        font-size: 22px;
+        width: 100%;
         text-transform: inherit;
-        width: 60%;
         font-weight: 400;
       }
     }
 
-    .about__price {
-      color: var(--color-bright-grey);
+    .about__price-button {
+      display: flex;
+      gap: 0 35px;
+      align-items: center;
 
       @include vp-767 {
-        font-size: 18px;
-        font-weight: 400;
-        width: 80px;
-        text-align: center;
+        gap: 0 17px;
+        justify-content: flex-end;
+        width: 100%;
+      }
+
+      .about__price {
+        color: var(--color-bright-grey);
+
+        @include vp-767 {
+          font-size: 20px;
+          font-weight: 400;
+          width: 80px;
+          text-align: center;
+        }
       }
     }
   }
@@ -302,6 +318,7 @@ const galleries = [
         height: 220px;
         width: auto;
         border-radius: 10px;
+        min-width: 164.5px;
       }
     }
   }

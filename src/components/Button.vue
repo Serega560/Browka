@@ -27,7 +27,6 @@
     font-size: 18px;
     padding: 5px 10px;
     width: 180px;
-    margin-left: auto;
     border-radius: 5px;
   }
 

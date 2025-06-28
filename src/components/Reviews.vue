@@ -108,7 +108,7 @@ const reviews = [
 
     @include vp-767 {
       margin-bottom: 25px;
-      font-size: 28px;
+      font-size: 24px;
     }
   }
 
@@ -117,10 +117,11 @@ const reviews = [
     :deep(.swiper-slide) {
       display: grid;
       grid-template-columns: 1fr;
+      grid-template-rows: 30px 1fr;
       flex-direction: column;
       border: 1px solid var(--color-default-black);
       padding: 20px;
-      min-height: 400px;
+      min-height: 430px;
       background-color: var(--color-default-white);
       border-radius: 20px;
       flex-shrink: 0;
@@ -128,7 +129,8 @@ const reviews = [
 
       @include vp-767 {
         padding: 10px;
-        min-height: 200px;
+        min-height: 220px;
+        grid-template-rows: 22px 1fr;
       }
     }
 

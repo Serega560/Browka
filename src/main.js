@@ -5,7 +5,6 @@ import 'virtual:svg-icons-register'
 import 'swiper/css';
 import 'swiper/css/autoplay';
 
-
 import { createApp } from 'vue'
 import App from './App.vue'
 
