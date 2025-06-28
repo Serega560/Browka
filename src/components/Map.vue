@@ -23,9 +23,15 @@ onMounted(() => {
     <div class="container">
       <h2 class="map__title">Как найти салон</h2>
       <div class="map__block">
+<<<<<<< HEAD
         <div id="map"></div>
         <div class="map__content">
           <p class="map__text">г. Москва, м. Коньково, м. Университет дружбы народов, ул. Островитянова д.&nbsp;11,&nbsp; вход&nbsp;&laquo;островок&raquo;, кабинет&nbsp;29</p>
+=======
+        <div id="map" style="width: 100%; height: 600px"></div>
+        <div class="map__content">
+          <p class="map__text">г. Москва, м. Коньково, м. Университет дружбы народов, ул. Островитянова д. 11, вход "островок", кабинет 29</p>
+>>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
         </div>
       </div>
     </div>
@@ -53,7 +59,11 @@ onMounted(() => {
 
     @include vp-767 {
       margin-bottom: 25px;
+<<<<<<< HEAD
       font-size: 24px;
+=======
+      font-size: 28px;
+>>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
     }
   }
 
@@ -63,6 +73,7 @@ onMounted(() => {
     gap: 30px;
     justify-content: center;
 
+<<<<<<< HEAD
     #map {
       height: 600px;
       width: 100%;
@@ -72,15 +83,20 @@ onMounted(() => {
       }
     }
 
+=======
+>>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
     .map__content {
       .map__text {
         font-size: 34px;
         color: var(--color-default-white);
         text-align: center;
+<<<<<<< HEAD
 
         @include vp-767 {
           font-size: 20px;
         }
+=======
+>>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
       }
     }
   }

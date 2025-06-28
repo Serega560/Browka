@@ -40,6 +40,14 @@ defineProps({
   display: flex;
   gap: 0 3px;
   align-items: flex-start;
+<<<<<<< HEAD
+=======
+
+  @include vp-767 {
+    gap: 0 8px;
+    order: -1;
+  }
+>>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
 
   .social__item {
     cursor: pointer;

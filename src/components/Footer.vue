@@ -42,7 +42,11 @@ import Telephone from '@/components/Telephone.vue'
 
     @include vp-767 {
       margin-bottom: 25px;
+<<<<<<< HEAD
       font-size: 24px;
+=======
+      font-size: 28px;
+>>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
     }
   }
 
