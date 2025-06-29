@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
+import { inject } from 'vue'
+const openDiscountPopup = inject('openDiscountPopup')
+
 const isMenuOpen = ref(false)
 const isDesktop = ref(window.innerWidth > 767)
 
@@ -36,8 +39,8 @@ defineProps({
 const menuItems = [
   { label: 'Услуги', href: '#' },
   { label: 'Работы', href: '#' },
-  { label: 'Расчет стоимости', href: '#' },
-  { label: 'Записаться', href: '#' }
+  { label: 'Расчет стоимости' },
+  { label: 'Записаться', href: 'https://wa.me/79261283908' }
 ]
 </script>
 
@@ -64,7 +67,21 @@ const menuItems = [
           :key="index"
           class="menu__item"
         >
-          <a class="menu__link" :href="item.href">{{ item.label }}</a>
+          <button
+            v-if="item.label === 'Расчет стоимости'"
+            class="menu__link"
+            type="button"
+            @click="openDiscountPopup"
+          >
+            {{ item.label }}
+          </button>
+          <a
+            v-else
+            class="menu__link"
+            :href="item.href"
+          >
+            {{ item.label }}
+          </a>
         </li>
       </ul>
     </transition>
@@ -91,6 +108,7 @@ const menuItems = [
       background-color: transparent;
       padding: 8px 0;
       order: 0;
+      right: 250px;
 
       span {
         background-color: var(--color-can-can);
@@ -134,19 +152,24 @@ const menuItems = [
       right: 0;
       top: 66px;
       text-align: right;
-      background-color: var(--color-bright-grey);
+      background: linear-gradient( #ffffff, #d27ea7);
       height: 400px;
       padding: 30px 0;
+      justify-content: center;
     }
 
     .menu__link {
       font-size: 34px;
       padding: 10px 20px;
       color: var(--color-bright-grey);
+      background-color: inherit;
+      border: none;
+
 
       @include vp-767 {
         font-size: 26px;
-        color: var(--color-default-white);
+        color: var(--color-bright-grey);
+        text-align: end;
       }
 
       &:hover {
@@ -186,17 +209,17 @@ const menuItems = [
 .menu-enter-from,
 .menu-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateX(200px);
 }
 
 .menu-enter-active,
 .menu-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .menu-enter-to,
 .menu-leave-from {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 </style>

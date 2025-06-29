@@ -40,21 +40,14 @@ defineProps({
   display: flex;
   gap: 0 3px;
   align-items: flex-start;
-<<<<<<< HEAD
-=======
 
   @include vp-767 {
     gap: 0 8px;
     order: -1;
   }
->>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
 
   .social__item {
     cursor: pointer;
-
-    @include vp-767 {
-      height: 40px;
-    }
 
     a {
       padding: 14px 8px;
@@ -133,9 +126,12 @@ defineProps({
       flex-direction: column;
       gap: 30px 0;
       margin-top: 8px;
+      align-self: flex-start;
     }
 
     .social__item {
+      height: 40px;
+
       a {
         @include vp-767 {
           padding: 0;

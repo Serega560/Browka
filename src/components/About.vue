@@ -29,7 +29,7 @@ const galleries = [
   },
   {
     id: 2,
-    title: 'Перманентный макияж бровей. Аппаратные волоски.',
+    title: 'Перманентный макияж бровей. Аппаратные волоски',
     price: '9000Р',
     autoplayDelay: 3500,
     images: [
@@ -113,13 +113,10 @@ const galleries = [
       'photo_6.1.png',
       'photo_6.2.png',
       'photo_6.3.png',
-<<<<<<< HEAD
       'photo_6.4.jpg',
       'photo_6.5.jpg',
       'photo_6.6.jpg',
       'photo_6.7.jpg',
-=======
->>>>>>> 7f4ab995f0ae8a32996f6f57a82272b610e39322
     ].map(name => ({
       webp1x: new URL(`../assets/img/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/${name}?format=webp&width=800`, import.meta.url).href,
@@ -319,9 +316,7 @@ const galleries = [
 
       @include vp-767 {
         height: 220px;
-        width: auto;
         border-radius: 10px;
-        min-width: 164.5px;
       }
     }
   }
