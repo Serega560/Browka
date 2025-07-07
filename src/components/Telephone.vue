@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <a class="tel" href="tel:89261283908">+7 (926) 128-39-08</a>
+  <a class="telephone" href="tel:89261283908">+7 (926) 128-39-08</a>
 </template>
 
 <style scoped lang="scss">
@@ -10,7 +10,7 @@
 @use '@/assets/styles/container' as *;
 
 
-.tel {
+.telephone {
   display: flex;
   align-items: center;
   box-sizing: border-box;

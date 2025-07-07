@@ -1,7 +1,7 @@
 <script setup>
+import Logo from '@/components/Logo.vue'
 import Menu from '@/components/Menu.vue'
 import Social from '@/components/Social.vue'
-import Logo from '@/components/Logo.vue'
 import Telephone from '@/components/Telephone.vue'
 </script>
 
@@ -25,6 +25,7 @@ import Telephone from '@/components/Telephone.vue'
 @use '@/assets/styles/container' as *;
 
 .header {
+  position: relative;
   display: flex;
   justify-content: space-between;
   background-color: var(--color-default-white);
@@ -34,7 +35,7 @@ import Telephone from '@/components/Telephone.vue'
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 10px 0;
 
     @include vp-767 {
       padding: 8px 0;

@@ -1,13 +1,11 @@
 <script setup>
-import LogoDs from '@/assets/icons/logo-ds.svg'
-import LogoMb from '@/assets/icons/logo-mb.svg'
+import Logo from '@/assets/img/logo.jpg'
 
 </script>
 
 <template>
-  <a class="header__img" href="#">
-    <LogoDs class="header__logo header__logo-ds" />
-    <LogoMb class="header__logo header__logo-mb" />
+  <a class="img" href="#">
+    <img :src="Logo" alt="Logo" class="logo" />
   </a>
 </template>
 
@@ -15,32 +13,21 @@ import LogoMb from '@/assets/icons/logo-mb.svg'
 @use '@/assets/styles/media.scss' as *;
 @use '@/assets/styles/container' as *;
 
-.header__img {
+.img {
   border: none;
-  align-self: flex-start;
 
   @include vp-767 {
     order: -2;
   }
 
-  .header__logo-ds {
+  .logo {
     border-radius: 50%;
-    width: 85px;
-    height: 85px;
+    width: 100px;
+    height: 100px;
 
     @include vp-767 {
-      width: 40px;
-      height: 40px;
-      display: none;
-    }
-  }
-
-  .header__logo-mb {
-    display: none;
-    border-radius: 50%;
-
-    @include vp-767 {
-      display: block;
+      width: 50px;
+      height: 50px;
     }
   }
 }

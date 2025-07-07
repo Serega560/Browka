@@ -130,7 +130,9 @@ defineProps({
     }
 
     .social__item {
-      height: 40px;
+      @include vp-767 {
+        height: 40px;
+      }
 
       a {
         @include vp-767 {

@@ -1,7 +1,7 @@
 <script setup>
 import Logo from '@/components/Logo.vue'
-import Social from '@/components/Social.vue'
 import Menu from '@/components/Menu.vue'
+import Social from '@/components/Social.vue'
 import Telephone from '@/components/Telephone.vue'
 </script>
 

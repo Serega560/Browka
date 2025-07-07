@@ -1,12 +1,14 @@
 <script setup>
 import Header from '@/components/Header.vue';
-import Hero from '@/components/Hero.vue';
-import About from '@/components/About.vue';
-import Reviews from '@/components/Reviews.vue';
-import Footer from '@/components/Footer.vue'
-import Map from '@/components/Map.vue'
 import Discount from '@/components/Discount.vue'
+import Hero from '@/components/Hero.vue';
+import About from '@/components/Services.vue';
+import Reviews from '@/components/Reviews.vue';
+import Work from '@/components/Work.vue'
+import Map from '@/components/Map.vue'
+import Footer from '@/components/Footer.vue'
 import { ref, provide } from 'vue'
+import Education from '@/components/Education.vue'
 
 const showDiscountPopup = ref(false)
 
@@ -24,9 +26,13 @@ provide('openDiscountPopup', openDiscountPopup)
 <template>
   <Header />
   <Hero />
-  <Discount v-if="showDiscountPopup" @close="closeDiscountPopup" />
+  <transition name="fade">
+  <Discount :isOpen="showDiscountPopup" @close="closeDiscountPopup" />
+  </transition>/
   <About />
   <Reviews />
+  <Work />
+  <Education />
   <Map />
   <Footer />
 </template>

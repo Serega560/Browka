@@ -1,11 +1,15 @@
 <script setup>
 import Button from '@/components/Button.vue'
-import { computed, watch, ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 
-const isOpen = ref(false)
+const props = defineProps({
+  isOpen: Boolean
+})
 
-// Следим за изменением состояния попапа
-watch(isOpen, (newVal) => {
+const emit = defineEmits(['close'])
+
+// Блокируем прокрутку при открытом попапе
+watch(() => props.isOpen, (newVal) => {
   if (newVal) {
     const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
     document.body.style.overflow = 'hidden'
@@ -16,15 +20,14 @@ watch(isOpen, (newVal) => {
   }
 })
 
-const emit = defineEmits(['close'])
-
 const services = ref([
   { name: 'Перманентный макияж бровей. Пудровое напыление: ', price: 7000, selected: false },
   { name: 'Перманентный макияж бровей. Аппаратные волоски: ', price: 9000, selected: false },
   { name: 'Перманентный макияж век: ', price: 7000, selected: false },
   { name: 'Перманентный макияж губ: ', price: 7000, selected: false },
   { name: 'Мини тату: ', price: 4000, selected: false },
-  { name: 'Ламинирование бровей и ресниц: ', price: 7000, selected: false }
+  { name: 'Ламинирование бровей: ', price: 2000, selected: false },
+  { name: 'Ламинирование ресниц: ', price: 2500, selected: false }
 ])
 
 const selectedCount = computed(() =>
@@ -48,31 +51,45 @@ const discountedPrice = computed(() =>
 )
 
 const closePopup = () => {
-  isOpen.value = false
   emit('close')
 }
 </script>
-
 <template>
-  <div v-if="isOpen" class="discount-overlay" @click.self="closePopup">
+  <div v-if="props.isOpen" class="discount-overlay" @click.self="closePopup">
     <div class="discount">
       <button class="discount__close" @click="closePopup">✖</button>
       <h2 class="discount__title">Выберите услуги</h2>
       <div class="discount__block">
-        <p>*При выборе двух услуг скидка 10%</p>
-        <p>*При выборе трех услуг скидка 15%</p>
+        <p>*При выборе двух услуг - скидка 10%.</p>
+        <p>*При выборе трёх услуг - скидка 15%.</p>
       </div>
       <ul class="discount__list">
         <li class="discount__item" v-for="(service, index) in services" :key="index">
-          <label class="discount__checkbox" :for="'service-' + index">
+          <label class="discount__label" :for="'service-' + index">
             <input
+              class="discount__checkbox"
               type="checkbox"
               :id="'service-' + index"
               v-model="service.selected"
             >
-            {{ service.name }}
+            <span class="discount__checkbox-box">
+              <svg
+                :class="{ visible: service.selected }"
+                viewBox="0 0 24 24"
+                width="12"
+                height="12"
+                fill="none"
+                stroke="white"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+              <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span class="discount__text">{{ service.name }}</span>
+            <span class="discount__price">{{ service.price }}₽</span>
           </label>
-          <span>{{ service.price }}₽</span>
         </li>
       </ul>
 
@@ -107,7 +124,7 @@ const closePopup = () => {
 }
 
 .discount {
-  background-color: var(--color-bright-grey);
+  background: linear-gradient(13deg, #5b5e64, #d27ea7);
   width: 60%;
   padding: 30px;
   color: var(--color-default-white);
@@ -115,14 +132,15 @@ const closePopup = () => {
   margin: auto;
 
   @include vp-767 {
-    width: 80%;
+    width: 90%;
     padding: 15px 15px 40px;
+    border-radius: 17px;
   }
 
   .discount__close {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 17px;
+    right: 15px;
     background: none;
     border: none;
     color: var(--color-default-white);
@@ -141,6 +159,7 @@ const closePopup = () => {
 
     @include vp-767 {
       font-size: 24px;
+      margin-bottom: 15px;
     }
   }
 
@@ -152,6 +171,8 @@ const closePopup = () => {
 
     @include vp-767 {
       font-size: 16px;
+      gap: 1px 0;
+      margin-bottom: 20px;
     }
   }
 
@@ -161,35 +182,72 @@ const closePopup = () => {
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
     @include vp-767 {
-      gap: 10px;
+      gap: 11px;
     }
 
     .discount__item {
       width: 80%;
 
-      .discount__checkbox {
+      @include vp-767 {
+        width: 100%;
+      }
+
+      .discount__label {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        gap: 5px;
         transition: color .3s ease-in-out;
 
-        input {
+        .discount__checkbox {
+          position: absolute;
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .discount__checkbox-box {
           width: 17px;
           height: 17px;
+          border: 1px solid var(--color-default-white);
+          border-radius: 4px;
+          background-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color .2s ease, border-color .2s ease;
 
           @include vp-767 {
             width: 15px;
             height: 15px;
           }
+
+          svg {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+          }
+
+          svg.visible {
+            opacity: 1;
+            visibility: visible;
+          }
         }
 
-        &:hover {
-          color: var(--color-mulberry);
-          cursor: pointer;
+        .discount__text {
+          width: 100%;
+          font-size: 17px;
+        }
 
-          @include vp-767 {
-            color: var(--color-default-white);
-          }
+        .discount__price {
+          align-self: end;
+        }
+
+        .discount__checkbox:checked + .discount__checkbox-box {
+          background-color: var(--color-mulberry);
+          border-color: var(--color-mulberry);
         }
       }
     }
@@ -218,6 +276,18 @@ const closePopup = () => {
       justify-content: flex-end;
     }
   }
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
 }
 
 </style>

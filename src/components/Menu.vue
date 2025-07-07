@@ -1,34 +1,71 @@
 <script setup>
+// Импортируем реактивные переменные и хуки жизненного цикла из Vue
 import { ref, onMounted, onUnmounted } from 'vue'
 
+// Импортируем функцию inject для получения зависимости из provide/inject
 import { inject } from 'vue'
+
+// Получаем из контекста функцию открытия попапа "Расчет стоимости"
 const openDiscountPopup = inject('openDiscountPopup')
 
+// Реактивная переменная: открыто ли мобильное меню
 const isMenuOpen = ref(false)
+
+// Реактивная переменная: флаг, десктоп ли сейчас (ширина окна > 767)
 const isDesktop = ref(window.innerWidth > 767)
 
+// Ссылка на DOM-элемент меню, чтобы отследить клик вне него
+const menuRef = ref(null)
+
+// Функция для открытия/закрытия меню (по клику на бургер)
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value
 }
 
-// Обработчик изменения размера окна, чтобы обновлять isDesktop
+// Обработчик изменения размера окна
+// Обновляет isDesktop и принудительно закрывает меню при переходе на десктоп
 function onResize() {
   isDesktop.value = window.innerWidth > 767
 
-  // Если переключились на десктоп, принудительно показываем меню
   if (isDesktop.value) {
     isMenuOpen.value = false
   }
 }
 
+// Обработчик клика вне меню: закрывает меню, если кликнули не по нему
+function handleClickOutside(event) {
+  if (isMenuOpen.value && menuRef.value && !menuRef.value.contains(event.target)) {
+    isMenuOpen.value = false
+  }
+}
+
+// Обработчик скролла страницы: закрывает меню при скролле вниз
+function handleScroll() {
+  if (isMenuOpen.value) {
+    isMenuOpen.value = false
+  }
+}
+
+// Утилита: явно закрыть меню (например, при клике на пункт меню)
+function closeMenu() {
+  isMenuOpen.value = false;
+}
+
+// Хук: при монтировании компонента навешиваем обработчики событий
 onMounted(() => {
   window.addEventListener('resize', onResize)
+  document.addEventListener('click', handleClickOutside)
+  window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
+// Хук: при размонтировании компонента снимаем обработчики событий
 onUnmounted(() => {
   window.removeEventListener('resize', onResize)
+  document.removeEventListener('click', handleClickOutside)
+  window.removeEventListener('scroll', handleScroll)
 })
 
+// Описание пропса, который приходит в компонент: inFooter
 defineProps({
   inFooter: {
     type: Boolean,
@@ -36,20 +73,22 @@ defineProps({
   }
 })
 
+// Массив пунктов меню для рендера
 const menuItems = [
-  { label: 'Услуги', href: '#' },
-  { label: 'Работы', href: '#' },
+  { label: 'Услуги', href: '#services' },
+  { label: 'Работы', href: '#work' },
   { label: 'Расчет стоимости' },
   { label: 'Записаться', href: 'https://wa.me/79261283908' }
 ]
 </script>
+
 
 <template>
   <nav class="header__menu menu">
     <button
       class="menu__button"
       :class="{ active: isMenuOpen }"
-      @click="toggleMenu"
+      @click.stop="toggleMenu"
       v-if="!inFooter"
     >
       <span></span>
@@ -59,6 +98,7 @@ const menuItems = [
 
     <transition name="menu">
       <ul
+        ref="menuRef"
         class="menu__list"
         :class="{ 'menu__list--footer': inFooter }"
         v-show="inFooter ? true : (isMenuOpen || isDesktop)">
@@ -71,7 +111,7 @@ const menuItems = [
             v-if="item.label === 'Расчет стоимости'"
             class="menu__link"
             type="button"
-            @click="openDiscountPopup"
+            @click="() => { openDiscountPopup(); closeMenu(); }"
           >
             {{ item.label }}
           </button>
@@ -79,6 +119,7 @@ const menuItems = [
             v-else
             class="menu__link"
             :href="item.href"
+            @click="closeMenu"
           >
             {{ item.label }}
           </a>
@@ -146,7 +187,7 @@ const menuItems = [
     @include vp-767 {
       display: flex;
       position: absolute;
-      width: 42%;
+      width: 50%;
       flex-direction: column;
       gap: 15px 0;
       right: 0;
@@ -170,6 +211,7 @@ const menuItems = [
         font-size: 26px;
         color: var(--color-bright-grey);
         text-align: end;
+        padding: 7px 15px;
       }
 
       &:hover {
@@ -201,6 +243,7 @@ const menuItems = [
       @include vp-767 {
         font-size: 20px;
         width: 85px;
+        text-align: center;
       }
     }
   }
@@ -212,14 +255,14 @@ const menuItems = [
   transform: translateX(200px);
 }
 
-.menu-enter-active,
-.menu-leave-active {
-  transition: all 0.5s ease;
-}
-
 .menu-enter-to,
 .menu-leave-from {
   opacity: 1;
   transform: translateX(0);
 }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 </style>
