@@ -151,7 +151,7 @@ const galleries = [
           class="services__item"
         >
           <div class="services__main">
-            <div class="services__subtitle-price">
+            <div class="services__subtitle-price" :class="{ 'order-2': id % 2 === 1 }">
               <h3 class="services__subtitle">{{ item.title }}</h3>
               <div class="services__price-button">
                 <p class="services__price">{{ item.price }}</p>
@@ -165,7 +165,7 @@ const galleries = [
                     :loop="true"
                     :speed="1000"
                     :autoplay="{ delay: item.autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: false }"
-                    :class="['services__swiper', { 'services__slide--left': id % 2 === 1 }]"
+                    :class="['services__swiper', { 'swiper--reversed': id % 2 === 1 }]"
                     :space-between="10"
                     :breakpoints="{
                       767: {slidesPerView: 2},
@@ -238,13 +238,38 @@ const galleries = [
 
     .services__main {
       display: grid;
-      grid-template-columns: 560px auto;
+      grid-template-columns: auto auto;
       gap: 0 40px;
 
       @include vp-767 {
         display: flex;
         flex-wrap: wrap;
         gap: 20px;
+      }
+
+      .services__subtitle-price {
+        order: 1;
+        width: 560px;
+
+        &.order-2 {
+          order: 2;
+        }
+
+        @include vp-767 {
+          order: 1; // всегда первым на мобильных
+        }
+      }
+
+      .services__swiper {
+        order: 2;
+
+        &.swiper--reversed {
+          order: 1;
+        }
+
+        @include vp-767 {
+          order: 2; // всегда вторым на мобильных
+        }
       }
     }
   }

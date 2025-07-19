@@ -22,7 +22,7 @@ export default defineConfig({
       symbolId: 'icon-[name]',
     }),
   ],
-  base: '/Browka/',
+  base: './',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
