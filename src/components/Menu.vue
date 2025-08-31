@@ -205,7 +205,7 @@ const menuItems = [
       color: var(--color-bright-grey);
       background-color: inherit;
       border: none;
-
+      transition: color 0.3s ease-in-out;
 
       @include vp-767 {
         font-size: 26px;
@@ -219,7 +219,7 @@ const menuItems = [
         color: var(--color-mulberry);
 
         @include vp-767 {
-          color: var(--color-default-white);
+          color: var(--color-bright-grey);
         }
       }
     }
@@ -261,7 +261,7 @@ const menuItems = [
   transform: translateX(0);
 }
 
-.fade-enter-active, .fade-leave-active {
+.menu-enter-active, .menu-leave-active {
   transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 

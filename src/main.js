@@ -1,6 +1,5 @@
-import './assets/styles/main.scss'
-import './assets/styles/reset.scss'
-import './assets/styles/fonts.scss'
+import '../src/assets/styles/main.scss'
+import '../src/assets/styles/reset.scss'
 import 'virtual:svg-icons-register'
 import 'swiper/css';
 import 'swiper/css/autoplay';

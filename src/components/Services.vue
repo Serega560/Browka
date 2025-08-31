@@ -1,7 +1,7 @@
 <script setup>
 
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Autoplay} from 'swiper/modules'
+import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import Button from '@/components/Button.vue'
@@ -20,11 +20,11 @@ const galleries = [
       'photo_1.3.jpg',
       'photo_1.4.jpg',
       'photo_1.5.jpg',
-      'photo_1.6.jpg',
+      'photo_1.6.jpg'
     ].map(name => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   },
   {
@@ -38,11 +38,11 @@ const galleries = [
       'photo_2.3.jpg',
       'photo_2.4.jpg',
       'photo_2.5.jpg',
-      'photo_2.6.jpg',
+      'photo_2.6.jpg'
     ].map(name => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   },
   {
@@ -59,11 +59,11 @@ const galleries = [
       'photo_3.6.jpg',
       'photo_3.7.jpg',
       'photo_3.8.jpg',
-      'photo_3.9.jpg',
+      'photo_3.9.jpg'
     ].map(name => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   },
   {
@@ -78,11 +78,11 @@ const galleries = [
       'photo_4.4.jpg',
       'photo_4.5.jpg',
       'photo_4.6.jpg',
-      'photo_4.7.jpg',
+      'photo_4.7.jpg'
     ].map(name => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   },
   {
@@ -97,11 +97,11 @@ const galleries = [
       'photo_5.4.jpg',
       'photo_5.5.jpg',
       'photo_5.6.jpg',
-      'photo_5.7.jpg',
+      'photo_5.7.jpg'
     ].map(name => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   },
   {
@@ -113,10 +113,12 @@ const galleries = [
       'photo_6.1.jpg',
       'photo_6.2.jpg',
       'photo_6.3.jpg',
+      'photo_6.4.jpg',
+      'photo_6.5.jpg'
     ].map(name => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   },
   {
@@ -129,11 +131,11 @@ const galleries = [
       'photo_7.2.jpg',
       'photo_7.3.jpg',
       'photo_7.4.jpg',
-      'photo_7.5.jpg',
+      'photo_7.5.jpg'
     ].map(name => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   }
 ]
@@ -199,7 +201,7 @@ const galleries = [
 
 <style scoped lang="scss">
 @use '@/assets/styles/media.scss' as *;
-@use '@/assets/styles/container' as *;
+@use '@/assets/styles/container.scss' as *;
 
 .services {
   padding: 100px 0;
@@ -232,7 +234,7 @@ const galleries = [
       box-shadow: 0 5px 5px var(--color-can-can);
 
       @include vp-767 {
-        box-shadow: 0 1px 2px var(--color-can-can);
+        box-shadow: 0 1px 2px var(--color-electric-purple);
       }
     }
 
@@ -246,31 +248,6 @@ const galleries = [
         flex-wrap: wrap;
         gap: 20px;
       }
-
-      .services__subtitle-price {
-        order: 1;
-        width: 560px;
-
-        &.order-2 {
-          order: 2;
-        }
-
-        @include vp-767 {
-          order: 1; // всегда первым на мобильных
-        }
-      }
-
-      .services__swiper {
-        order: 2;
-
-        &.swiper--reversed {
-          order: 1;
-        }
-
-        @include vp-767 {
-          order: 2; // всегда вторым на мобильных
-        }
-      }
     }
   }
 
@@ -282,11 +259,21 @@ const galleries = [
     justify-content: center;
     align-items: center;
     text-align: center;
+    order: 1;
+    width: 560px;
 
     @include vp-767 {
       width: 100%;
       justify-content: start;
       gap: 20px 0;
+    }
+
+    &.order-2 {
+      order: 2;
+
+      @include vp-767 {
+        order: 1;
+      }
     }
 
     .services__subtitle {
@@ -328,6 +315,11 @@ const galleries = [
   }
 
   .services__swiper {
+    order: 2;
+
+    &.swiper--reversed {
+      order: 1;
+    }
 
     :deep(.swiper-wrapper) {
       @include vp-767 {

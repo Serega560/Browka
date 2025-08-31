@@ -23,7 +23,7 @@ import Telephone from '@/components/Telephone.vue'
 
 <style scoped lang="scss">
 @use '@/assets/styles/media.scss' as *;
-@use '@/assets/styles/container' as *;
+@use '@/assets/styles/container.scss' as *;
 
 .footer {
   background-color: var(--color-default-black);

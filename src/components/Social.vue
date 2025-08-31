@@ -51,7 +51,6 @@ defineProps({
 
     a {
       padding: 14px 8px;
-      transition: all 0.3s ease-in-out;
 
       &:hover {
         svg {
@@ -61,12 +60,18 @@ defineProps({
 
       @include vp-767 {
         padding: 3px 2px;
+
+        &:hover {
+          svg {
+            transform: scale(1);
+          }
+        }
       }
 
       svg {
         width: 40px;
         height: 40px;
-        transition: color .3s;
+        transition: color .3s ease, transform .3s ease-in-out;
       }
     }
   }

@@ -33,6 +33,7 @@
   &:hover {
     width: 380px;
     background-color: var(--color-mulberry);
+    transition: all .3s ease-in-out;
 
     @include vp-767 {
       width: 180px;

@@ -11,7 +11,7 @@ import Logo from '@/assets/img/logo.jpg'
 
 <style scoped lang="scss">
 @use '@/assets/styles/media.scss' as *;
-@use '@/assets/styles/container' as *;
+@use '@/assets/styles/container.scss' as *;
 
 .img {
   border: none;

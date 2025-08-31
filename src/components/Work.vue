@@ -109,7 +109,7 @@ const images = [
 
 <style scoped lang="scss">
 @use '@/assets/styles/media.scss' as *;
-@use '@/assets/styles/container' as *;
+@use '@/assets/styles/container.scss' as *;
 
 .work {
   touch-action: manipulation;

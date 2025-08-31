@@ -27,31 +27,45 @@ const services = ref([
   { name: 'Перманентный макияж губ: ', price: 7000, selected: false },
   { name: 'Мини тату: ', price: 4000, selected: false },
   { name: 'Ламинирование бровей: ', price: 2000, selected: false },
-  { name: 'Ламинирование ресниц: ', price: 2500, selected: false }
+  { name: 'Ламинирование ресниц: ', price: 2500, selected: false },
+  { name: 'Окрашивание бровей, ресниц, коррекция: ', price: 1000, selected: false },
 ])
 
-const selectedCount = computed(() =>
-  services.value.filter(service => service.selected).length
+const mainServices = computed(() => services.value.slice(0, 4))
+const extraServices = computed(() => services.value.slice(4))
+
+const selectedMainCount = computed(() =>
+  mainServices.value.filter(s => s.selected).length
 )
 
 const discount = computed(() => {
-  if (selectedCount.value >= 3) return 15
-  if (selectedCount.value === 2) return 10
+  if (selectedMainCount.value >= 3) return 14
+  if (selectedMainCount.value === 2) return 19
   return 0
 })
 
-const totalPrice = computed(() =>
+const fullPrice = computed(() =>
   services.value
-    .filter(service => service.selected)
-    .reduce((sum, service) => sum + service.price, 0)
+    .filter(s => s.selected)
+    .reduce((sum, s) => sum + s.price, 0)
 )
 
-const discountedPrice = computed(() =>
-  Math.round(totalPrice.value * (1 - discount.value / 100))
-)
+const discountedPrice = computed(() => {
+  const totalMain = mainServices.value
+    .filter(s => s.selected)
+    .reduce((sum, s) => sum + s.price, 0)
+
+  const totalExtra = extraServices.value
+    .filter(s => s.selected)
+    .reduce((sum, s) => sum + s.price, 0)
+
+  const discountedMain = Math.round(totalMain * (1 - discount.value / 100))
+  return discountedMain + totalExtra
+})
 
 const closePopup = () => {
   emit('close')
+
 }
 </script>
 <template>
@@ -60,9 +74,10 @@ const closePopup = () => {
       <button class="discount__close" @click="closePopup">✖</button>
       <h2 class="discount__title">Выберите услуги</h2>
       <div class="discount__block">
-        <p>*При выборе двух услуг - скидка 10%.</p>
-        <p>*При выборе трёх услуг - скидка 15%.</p>
+        <p>* Выгодное предложение на перманентный макияж</p>
+        <p>Две зоны в один день/ три зоны в один день</p>
       </div>
+
       <ul class="discount__list">
         <li class="discount__item" v-for="(service, index) in services" :key="index">
           <label class="discount__label" :for="'service-' + index">
@@ -84,7 +99,7 @@ const closePopup = () => {
                 stroke-linecap="round"
                 stroke-linejoin="round"
               >
-              <polyline points="20 6 9 17 4 12" />
+                <polyline points="20 6 9 17 4 12" />
               </svg>
             </span>
             <span class="discount__text">{{ service.name }}</span>
@@ -94,17 +109,24 @@ const closePopup = () => {
       </ul>
 
       <div class="discount__info">
-        <p>Выбрано услуг: {{ selectedCount }}</p>
-        <p>Скидка: {{ discount }}%</p>
+        <p v-if="discount > 0">
+          Было: <s>{{ fullPrice }}₽</s>
+        </p>
+        <p>
+          Итог: <strong>{{ discountedPrice }}₽</strong>
+        </p>
+        <p v-if="discount > 0">
+          Экономия: {{ fullPrice - discountedPrice }}₽
+        </p>
       </div>
 
       <div class="discount__price-button">
-        <div class="discount__total">Итоговая цена: {{ discountedPrice }}₽</div>
         <Button />
       </div>
     </div>
   </div>
 </template>
+
 
 <style scoped lang="scss">
 @use '@/assets/styles/media.scss' as *;
@@ -115,7 +137,7 @@ const closePopup = () => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -278,15 +300,18 @@ const closePopup = () => {
   }
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.4s ease;
 }
 
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
-.fade-enter-to, .fade-leave-from {
+.fade-enter-to,
+.fade-leave-from {
   opacity: 1;
 }
 

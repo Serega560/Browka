@@ -1,10 +1,10 @@
 :root {
-  --color-default-black: #000000;
-  --color-default-white: #ffffff;
-  --color-nobel: #999999;
   --color-can-can: #d27ea7;
   --color-mulberry: #db5597;
   --color-deep-pink: #ff0080;
+  --color-default-black: #000000;
+  --color-default-white: #ffffff;
+  --color-nobel: #999999;
   --color-electric-purple: #9900ff;
   --color-indigo: #6201a3;
   --color-bright-grey: #5b5e64;
@@ -27,7 +27,6 @@
 
 
 body {
-  /*font-family: 'CormorantGaramond-Regular', Arial, sans-serif;*/
   font-weight: 400;
   background: var(--color-default-white);
   font-size: 20px;

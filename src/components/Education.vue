@@ -13,7 +13,7 @@
 
 <style scoped lang="scss">
 @use '@/assets/styles/media.scss' as *;
-@use '@/assets/styles/container' as *;
+@use '@/assets/styles/container.scss' as *;
 
 .education {
   padding: 100px 0;
