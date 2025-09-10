@@ -17,7 +17,7 @@
 @use '@/assets/styles/container.scss' as *;
 
 .hero {
-  height: 800px;
+  height: 600px;
   background-color: var(--color-default-black);
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/img/main.jpg');
   background-size: cover;
@@ -25,6 +25,7 @@
   background-position: center 78%;
 
   @include vp-767 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('../assets/img/main.jpg');
     background-position: center center;
     height: 400px;
     width: auto;
@@ -65,41 +66,6 @@
         align-self: flex-end;
         padding-top: 150px;
       }
-    }
-
-    .hero__button {
-      position: relative;
-      background-color: var(--color-default-white);
-      padding: 13px 25px;
-      border: 1px solid #5e3e2b;
-      border-radius: 15px;
-      cursor: pointer;
-      font-size: 30px;
-      bottom: -330px;
-      left: 150px;
-      text-align: center;
-      box-shadow: 8px 8px 1px var(--color-bright-grey);
-
-      &:hover {
-        bottom: -335px;
-        left: 155px;
-        box-shadow: 4px 4px 0 var(--color-default-black);
-        background-color: #efefef;
-      }
-
-      &:active {
-        bottom: -340px;
-        left: 160px;
-        box-shadow: 0 0 0 var(--color-bright-grey);
-        color: var(--color-default-white);
-        background-color: var(--color-default-black);
-      }
-    }
-
-    img {
-      width: 570px;
-      height: auto;
-      margin-top: 50px;
     }
   }
 }

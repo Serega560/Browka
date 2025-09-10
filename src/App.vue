@@ -7,8 +7,8 @@ import Reviews from '@/components/Reviews.vue';
 import Work from '@/components/Work.vue'
 import Map from '@/components/Map.vue'
 import Footer from '@/components/Footer.vue'
+import CacheManager from '@/components/CacheManager.vue'
 import { ref, provide } from 'vue'
-import Education from '@/components/Education.vue'
 
 const showDiscountPopup = ref(false)
 
@@ -28,13 +28,13 @@ provide('openDiscountPopup', openDiscountPopup)
   <Hero />
   <transition name="fade">
   <Discount :isOpen="showDiscountPopup" @close="closeDiscountPopup" />
-  </transition>/
+  </transition>
   <About />
   <Reviews />
   <Work />
-  <Education />
   <Map />
   <Footer />
+  <CacheManager />
 </template>
 
 <style scoped>

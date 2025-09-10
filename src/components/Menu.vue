@@ -48,7 +48,7 @@ function handleScroll() {
 
 // Утилита: явно закрыть меню (например, при клике на пункт меню)
 function closeMenu() {
-  isMenuOpen.value = false;
+  isMenuOpen.value = false
 }
 
 // Хук: при монтировании компонента навешиваем обработчики событий
@@ -91,9 +91,9 @@ const menuItems = [
       @click.stop="toggleMenu"
       v-if="!inFooter"
     >
+      <span class="menu__span"></span>
       <span></span>
-      <span></span>
-      <span></span>
+      <span class="menu__span"></span>
     </button>
 
     <transition name="menu">
@@ -144,7 +144,7 @@ const menuItems = [
       flex-direction: column;
       width: 100%;
       border: none;
-      gap: 12px 0;
+      gap: 9px 0;
       cursor: pointer;
       background-color: transparent;
       padding: 8px 0;
@@ -158,12 +158,17 @@ const menuItems = [
         border-radius: 1px;
         transition: all 0.3s ease-in-out;
         transform-origin: center;
+        align-self: center;
+      }
+
+      .menu__span {
+        width: 34px;
       }
     }
 
     &.active {
       span:nth-child(1) {
-        transform: translateY(14px) rotate(45deg);
+        transform: translateY(13px) rotate(45deg);
       }
 
       span:nth-child(2) {
@@ -171,7 +176,7 @@ const menuItems = [
       }
 
       span:nth-child(3) {
-        transform: translateY(-13px) rotate(-45deg);
+        transform: translateY(-9px) rotate(-45deg);
       }
     }
   }
@@ -187,13 +192,13 @@ const menuItems = [
     @include vp-767 {
       display: flex;
       position: absolute;
-      width: 50%;
+      width: 35%;
       flex-direction: column;
-      gap: 15px 0;
+      gap: 10px 0;
       right: 0;
       top: 66px;
       text-align: right;
-      background: linear-gradient( #ffffff, #d27ea7);
+      background: linear-gradient(#ffffff, #d27ea7);
       height: 400px;
       padding: 30px 0;
       justify-content: center;
@@ -208,7 +213,7 @@ const menuItems = [
       transition: color 0.3s ease-in-out;
 
       @include vp-767 {
-        font-size: 26px;
+        font-size: 18px;
         color: var(--color-bright-grey);
         text-align: end;
         padding: 7px 15px;
@@ -229,10 +234,11 @@ const menuItems = [
     all: unset;
     display: flex;
     list-style: none;
-    gap: 15px;
+    gap: 12px;
 
     @include vp-767 {
       flex-direction: column;
+      gap: 5px;
     }
 
     .menu__link {
@@ -241,9 +247,10 @@ const menuItems = [
       align-self: flex-start;
 
       @include vp-767 {
-        font-size: 20px;
+        font-size: 18px;
         width: 85px;
         text-align: center;
+        padding: 5px 15px;
       }
     }
   }

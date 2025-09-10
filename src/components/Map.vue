@@ -37,7 +37,7 @@ onMounted(() => {
 @use '@/assets/styles/container.scss' as *;
 
 .map{
-  padding: 100px 0;
+  padding: 60px 0;
   background-color: var(--color-bright-grey);
 
   @include vp-767 {
@@ -46,14 +46,14 @@ onMounted(() => {
 
   .map__title {
     color: var(--color-default-white);
-    font-size: 45px;
-    margin-bottom: 70px;
+    font-size: 36px;
+    margin-bottom: 30px;
     text-align: center;
     text-transform: uppercase;
 
     @include vp-767 {
-      margin-bottom: 25px;
-      font-size: 24px;
+      font-size: 18px;
+      margin-bottom: 20px;
     }
   }
 
@@ -79,7 +79,7 @@ onMounted(() => {
         text-align: center;
 
         @include vp-767 {
-          font-size: 20px;
+          font-size: 16px;
         }
       }
     }

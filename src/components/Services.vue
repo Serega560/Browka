@@ -11,26 +11,8 @@ const modules = [Autoplay]
 const galleries = [
   {
     id: 1,
-    title: 'Перманентный макияж бровей. Пудровое напыление',
-    price: '7000Р',
-    autoplayDelay: 3000,
-    images: [
-      'photo_1.1.jpg',
-      'photo_1.2.jpg',
-      'photo_1.3.jpg',
-      'photo_1.4.jpg',
-      'photo_1.5.jpg',
-      'photo_1.6.jpg'
-    ].map(name => ({
-      webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
-      webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
-    }))
-  },
-  {
-    id: 2,
     title: 'Перманентный макияж бровей. Аппаратные волоски',
-    price: '9000Р',
+    price: '10000Р',
     autoplayDelay: 3500,
     images: [
       'photo_2.1.jpg',
@@ -46,9 +28,27 @@ const galleries = [
     }))
   },
   {
+    id: 2,
+    title: 'Перманентный макияж бровей. Пудровое напыление',
+    price: '8000Р',
+    autoplayDelay: 3000,
+    images: [
+      'photo_1.1.jpg',
+      'photo_1.2.jpg',
+      'photo_1.3.jpg',
+      'photo_1.4.jpg',
+      'photo_1.5.jpg',
+      'photo_1.6.jpg'
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
+    }))
+  },
+  {
     id: 3,
     title: 'Перманентный макияж век',
-    price: '7000Р',
+    price: '8000Р',
     autoplayDelay: 3800,
     images: [
       'photo_3.1.jpg',
@@ -69,7 +69,7 @@ const galleries = [
   {
     id: 4,
     title: 'Перманентный макияж губ',
-    price: '7000Р',
+    price: '8000Р',
     autoplayDelay: 3300,
     images: [
       'photo_4.1.jpg',
@@ -106,6 +106,23 @@ const galleries = [
   },
   {
     id: 6,
+    title: 'Ламинирование ресниц.',
+    price: '2500Р',
+    autoplayDelay: 3000,
+    images: [
+      'photo_7.1.jpg',
+      'photo_7.2.jpg',
+      'photo_7.3.jpg',
+      'photo_7.4.jpg',
+      'photo_7.5.jpg'
+    ].map(name => ({
+      webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
+      webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
+      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
+    }))
+  },
+  {
+    id: 7,
     title: 'Ламинирование бровей',
     price: '2000Р',
     autoplayDelay: 3000,
@@ -121,23 +138,6 @@ const galleries = [
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
   },
-  {
-    id: 7,
-    title: 'Ламинирование ресниц.',
-    price: '2500Р',
-    autoplayDelay: 3000,
-    images: [
-      'photo_7.1.jpg',
-      'photo_7.2.jpg',
-      'photo_7.3.jpg',
-      'photo_7.4.jpg',
-      'photo_7.5.jpg'
-    ].map(name => ({
-      webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
-      webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
-      fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
-    }))
-  }
 ]
 
 </script>
@@ -171,7 +171,7 @@ const galleries = [
                     :space-between="10"
                     :breakpoints="{
                       767: {slidesPerView: 2},
-                      1440: {slidesPerView: 3}
+                      1440: {slidesPerView: 4}
                     }"
             >
               <SwiperSlide v-for="(image, idx) in item.images" :key="idx">
@@ -204,22 +204,22 @@ const galleries = [
 @use '@/assets/styles/container.scss' as *;
 
 .services {
-  padding: 100px 0;
+  padding: 60px 0;
 
   @include vp-767 {
     padding: 40px 0;
   }
 
   .services__title {
-    font-size: 45px;
+    font-size: 36px;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
     color: var(--color-bright-grey);
 
     @include vp-767 {
-      font-size: 24px;
-      margin-bottom: 25px;
+      font-size: 18px;
+      margin-bottom: 20px;
     }
   }
 
@@ -234,7 +234,7 @@ const galleries = [
       box-shadow: 0 5px 5px var(--color-can-can);
 
       @include vp-767 {
-        box-shadow: 0 1px 2px var(--color-electric-purple);
+        box-shadow: 0 1px 2px var(--color-can-can);
       }
     }
 
@@ -260,7 +260,7 @@ const galleries = [
     align-items: center;
     text-align: center;
     order: 1;
-    width: 560px;
+    width: 430px;
 
     @include vp-767 {
       width: 100%;
@@ -277,13 +277,13 @@ const galleries = [
     }
 
     .services__subtitle {
-      font-size: 30px;
+      font-size: 24px;
       width: 450px;
       text-transform: uppercase;
       color: var(--color-bright-grey);
 
       @include vp-767 {
-        font-size: 22px;
+        font-size: 18px;
         width: 100%;
         text-transform: inherit;
         font-weight: 400;
@@ -317,18 +317,25 @@ const galleries = [
   .services__swiper {
     order: 2;
 
+    @include vp-767 {
+      height: 220px;
+    }
+
     &.swiper--reversed {
       order: 1;
     }
 
     :deep(.swiper-wrapper) {
+      height: 400px;
+
       @include vp-767 {
         gap: 0;
       }
     }
 
     :deep(.swiper-slide) {
-      width: calc((100% - 20px) / 3) !important;
+      width: calc((100% - 30px) / 4) !important;
+      height: 400px;
 
       @include vp-767 {
         width: calc((100% - 5px) / 2) !important;
@@ -344,6 +351,7 @@ const galleries = [
       object-fit: cover;
       width: 100%;
       border-radius: 20px;
+      height: 400px;
 
       @include vp-767 {
         height: 220px;

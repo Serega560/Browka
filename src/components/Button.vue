@@ -19,7 +19,7 @@
   transition: width 0.3s, background-color 0.3s;
   color: var(--color-default-white);
   height: min-content;
-  font-size: var(--font-size-small);
+  font-size: 24px;
   align-items: center;
   justify-content: center;
 
@@ -31,7 +31,7 @@
   }
 
   &:hover {
-    width: 380px;
+    width: 300px;
     background-color: var(--color-mulberry);
     transition: all .3s ease-in-out;
 

@@ -11,7 +11,7 @@ import Telephone from '@/components/Telephone.vue'
     <h2 class="footer__title">Контакты</h2>
     <div class="footer__block">
 
-      <Logo />
+      <Logo position="footer" />
       <Menu :inFooter="true" />
       <Social position="footer"/>
       <Telephone />
@@ -27,7 +27,7 @@ import Telephone from '@/components/Telephone.vue'
 
 .footer {
   background-color: var(--color-default-black);
-  padding: 120px 0;
+  padding: 60px 0;
 
   @include vp-767 {
     padding: 40px 0;
@@ -35,14 +35,14 @@ import Telephone from '@/components/Telephone.vue'
 
   .footer__title {
     color: var(--color-default-white);
-    font-size: 45px;
-    margin-bottom: 70px;
+    font-size: 36px;
+    margin-bottom: 30px;
     text-align: center;
     text-transform: uppercase;
 
     @include vp-767 {
-      margin-bottom: 25px;
-      font-size: 24px;
+      font-size: 18px;
+      margin-bottom: 20px;
     }
   }
 

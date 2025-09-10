@@ -113,22 +113,22 @@ const images = [
 
 .work {
   touch-action: manipulation;
-  padding: 100px 0;
+  padding: 60px 0;
 
   @include vp-767 {
     padding: 40px 0;
   }
 
   .work__title {
-    font-size: 45px;
+    font-size: 36px;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     color: var(--color-bright-grey);
 
     @include vp-767 {
-      font-size: 24px;
-      margin-bottom: 25px;
+      font-size: 18px;
+      margin-bottom: 20px;
     }
   }
 

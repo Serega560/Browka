@@ -69,8 +69,8 @@ defineProps({
       }
 
       svg {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         transition: color .3s ease, transform .3s ease-in-out;
       }
     }
@@ -129,21 +129,24 @@ defineProps({
     @include vp-767 {
       order: 1;
       flex-direction: column;
-      gap: 30px 0;
+      gap: 15px 0;
       margin-top: 8px;
       align-self: flex-start;
     }
 
     .social__item {
-      @include vp-767 {
-        height: 40px;
-      }
+      font-size: 0;
 
       a {
         @include vp-767 {
           padding: 0;
           border: 0;
           font-size: 0;
+
+          svg {
+            width: 30px;
+            height: 30px;
+          }
         }
       }
     }

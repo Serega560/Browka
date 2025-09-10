@@ -21,14 +21,14 @@ watch(() => props.isOpen, (newVal) => {
 })
 
 const services = ref([
-  { name: 'Перманентный макияж бровей. Пудровое напыление: ', price: 7000, selected: false },
-  { name: 'Перманентный макияж бровей. Аппаратные волоски: ', price: 9000, selected: false },
-  { name: 'Перманентный макияж век: ', price: 7000, selected: false },
+  { name: 'Перманентный макияж бровей. Аппаратные волоски: ', price: 10000, selected: false },
+  { name: 'Перманентный макияж бровей. Пудровое напыление: ', price: 8000, selected: false },
+  { name: 'Перманентный макияж век: ', price: 8000, selected: false },
   { name: 'Перманентный макияж губ: ', price: 7000, selected: false },
   { name: 'Мини тату: ', price: 4000, selected: false },
-  { name: 'Ламинирование бровей: ', price: 2000, selected: false },
   { name: 'Ламинирование ресниц: ', price: 2500, selected: false },
-  { name: 'Окрашивание бровей, ресниц, коррекция: ', price: 1000, selected: false },
+  { name: 'Ламинирование бровей: ', price: 2000, selected: false },
+  { name: 'Окрашивание бровей, ресниц, коррекция: ', price: 1300, selected: false },
 ])
 
 const mainServices = computed(() => services.value.slice(0, 4))
@@ -39,8 +39,8 @@ const selectedMainCount = computed(() =>
 )
 
 const discount = computed(() => {
-  if (selectedMainCount.value >= 3) return 14
-  if (selectedMainCount.value === 2) return 19
+  if (selectedMainCount.value >= 3) return 11
+  if (selectedMainCount.value === 2) return 7
   return 0
 })
 
@@ -75,7 +75,7 @@ const closePopup = () => {
       <h2 class="discount__title">Выберите услуги</h2>
       <div class="discount__block">
         <p>* Выгодное предложение на перманентный макияж</p>
-        <p>Две зоны в один день/ три зоны в один день</p>
+        <p>* Две зоны в один день/ три зоны в один день</p>
       </div>
 
       <ul class="discount__list">
@@ -162,7 +162,7 @@ const closePopup = () => {
   .discount__close {
     position: absolute;
     top: 17px;
-    right: 15px;
+    right: 17px;
     background: none;
     border: none;
     color: var(--color-default-white);
@@ -171,6 +171,8 @@ const closePopup = () => {
 
     @include vp-767 {
       font-size: 18px;
+      top: 3px;
+      right: 3px;
     }
   }
 
@@ -221,8 +223,12 @@ const closePopup = () => {
         display: flex;
         align-items: center;
         cursor: pointer;
-        gap: 5px;
+        gap: 10px;
         transition: color .3s ease-in-out;
+
+        @include vp-767 {
+          gap: 5px;
+        }
 
         .discount__checkbox {
           position: absolute;
@@ -260,11 +266,20 @@ const closePopup = () => {
 
         .discount__text {
           width: 100%;
-          font-size: 17px;
+          font-size: 22px;
+
+          @include vp-767 {
+            font-size: 15px;
+          }
         }
 
         .discount__price {
           align-self: end;
+          font-size: 22px;
+
+          @include vp-767 {
+            font-size: 17px;
+          }
         }
 
         .discount__checkbox:checked + .discount__checkbox-box {

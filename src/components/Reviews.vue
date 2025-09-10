@@ -92,7 +92,7 @@ const reviews = [
 @use '@/assets/styles/container.scss' as *;
 
 .reviews {
-  padding: 80px 0;
+  padding: 50px 0;
   background-color: var(--color-can-can);
 
   @include vp-767 {
@@ -100,15 +100,15 @@ const reviews = [
   }
 
   .reviews--title {
-    font-size: 45px;
+    font-size: 36px;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     color: var(--color-bright-grey);
 
     @include vp-767 {
-      margin-bottom: 25px;
-      font-size: 24px;
+      font-size: 18px;
+      margin-bottom: 20px;
     }
   }
 

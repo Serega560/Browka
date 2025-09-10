@@ -1,11 +1,18 @@
 <script setup>
 import Logo from '@/assets/img/logo.jpg'
+defineProps({
+  position: {
+    type: String,
+    default: 'header',
+    validator: (value) => ['header', 'footer'].includes(value)
+  }
+})
 
 </script>
 
 <template>
   <a class="img" href="#">
-    <img :src="Logo" alt="Logo" class="logo" />
+    <img :src="Logo" alt="Logo" :class="['logo', `logo--${position}`]" />
   </a>
 </template>
 
@@ -28,6 +35,19 @@ import Logo from '@/assets/img/logo.jpg'
     @include vp-767 {
       width: 50px;
       height: 50px;
+    }
+
+    &--hedaer {
+      width: 50px;
+      height: 50px;
+    }
+
+    &--footer {
+
+      @include vp-767 {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 }
