@@ -78,7 +78,7 @@ const menuItems = [
   { label: 'Услуги', href: '#services' },
   { label: 'Работы', href: '#work' },
   { label: 'Расчет стоимости' },
-  { label: 'Записаться', href: 'https://wa.me/79261283908' }
+  { label: 'Записаться', href: 'https://t.me/ekaterina_browka' }
 ]
 </script>
 

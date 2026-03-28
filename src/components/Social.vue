@@ -20,11 +20,11 @@ defineProps({
         </svg>
       </a>
     </li>
-    <li class="social__item social__item--whatsapp">
-      <a href="https://wa.me/79261283908" target="_blank">
-        <WhatsappIcon />
-      </a>
-    </li>
+<!--    <li class="social__item social__item&#45;&#45;whatsapp">-->
+<!--      <a href="https://wa.me/79261283908" target="_blank">-->
+<!--        <WhatsappIcon />-->
+<!--      </a>-->
+<!--    </li>-->
     <li class="social__item social__item--vk">
       <a href="https://vk.com/ekaterinabrowka">
         <Vk />
@@ -90,19 +90,19 @@ defineProps({
     }
   }
 
-  .social__item--whatsapp {
-    a {
-      svg {
-        color: var(--color-lime-green);
-      }
-
-      &:active {
-        svg {
-          color: var(--color-pastel-green);
-        }
-      }
-    }
-  }
+  //.social__item--whatsapp {
+  //  a {
+  //    svg {
+  //      color: var(--color-lime-green);
+  //    }
+  //
+  //    &:active {
+  //      svg {
+  //        color: var(--color-pastel-green);
+  //      }
+  //    }
+  //  }
+  //}
 
   .social__item--vk {
     a {

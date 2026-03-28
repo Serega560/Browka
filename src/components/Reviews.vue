@@ -147,6 +147,7 @@ const reviews = [
       font-size: 24px;
       line-height: 32px;
       align-self: center;
+      color: var(--color-default-black);
 
       @include vp-767 {
         font-size: 16px;

@@ -5,6 +5,7 @@ import Hero from '@/components/Hero.vue';
 import About from '@/components/Services.vue';
 import Reviews from '@/components/Reviews.vue';
 import Work from '@/components/Work.vue'
+import Video from '@/components/Video.vue'
 import Map from '@/components/Map.vue'
 import Footer from '@/components/Footer.vue'
 import CacheManager from '@/components/CacheManager.vue'
@@ -32,6 +33,7 @@ provide('openDiscountPopup', openDiscountPopup)
   <About />
   <Reviews />
   <Work />
+  <Video />
   <Map />
   <Footer />
   <CacheManager />
