@@ -9,34 +9,37 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 // Блокируем прокрутку при открытом попапе
-watch(() => props.isOpen, (newVal) => {
-  if (newVal) {
-    const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
-    document.body.style.overflow = 'hidden'
-    document.body.style.paddingRight = scrollBarWidth + 'px'
-  } else {
-    document.body.style.overflow = ''
-    document.body.style.paddingRight = ''
+watch(
+  () => props.isOpen,
+  (newVal) => {
+    if (newVal) {
+      const scrollBarWidth = window.innerWidth - document.documentElement.clientWidth
+      document.body.style.overflow = 'hidden'
+      document.body.style.paddingRight = scrollBarWidth + 'px'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
   }
-})
+)
 
 const services = ref([
-  { name: 'Перманентный макияж бровей. Аппаратные волоски: ', price: 10000, selected: false },
+  { name: 'Перманентный макияж бровей. Аппаратные волоски: ', price: 12000, selected: false },
   { name: 'Перманентный макияж бровей. Пудровое напыление: ', price: 8000, selected: false },
   { name: 'Перманентный макияж век: ', price: 8000, selected: false },
-  { name: 'Перманентный макияж губ: ', price: 7000, selected: false },
+  { name: 'Перманентный макияж губ: ', price: 8000, selected: false },
+  { name: 'Коррекция перманентного макияжа бровей в технике "аппаратные волоски": ', price: 8000, selected: false },
+  { name: 'Коррекция перманентного макияжа бровей: ', price: 6000, selected: false },
   { name: 'Мини тату: ', price: 4000, selected: false },
   { name: 'Ламинирование ресниц: ', price: 2500, selected: false },
   { name: 'Ламинирование бровей: ', price: 2000, selected: false },
-  { name: 'Окрашивание бровей, ресниц, коррекция: ', price: 1300, selected: false },
+  { name: 'Окрашивание бровей, ресниц, коррекция: ', price: 1300, selected: false }
 ])
 
 const mainServices = computed(() => services.value.slice(0, 4))
 const extraServices = computed(() => services.value.slice(4))
 
-const selectedMainCount = computed(() =>
-  mainServices.value.filter(s => s.selected).length
-)
+const selectedMainCount = computed(() => mainServices.value.filter((s) => s.selected).length)
 
 const discount = computed(() => {
   if (selectedMainCount.value >= 3) return 11
@@ -45,18 +48,16 @@ const discount = computed(() => {
 })
 
 const fullPrice = computed(() =>
-  services.value
-    .filter(s => s.selected)
-    .reduce((sum, s) => sum + s.price, 0)
+  services.value.filter((s) => s.selected).reduce((sum, s) => sum + s.price, 0)
 )
 
 const discountedPrice = computed(() => {
   const totalMain = mainServices.value
-    .filter(s => s.selected)
+    .filter((s) => s.selected)
     .reduce((sum, s) => sum + s.price, 0)
 
   const totalExtra = extraServices.value
-    .filter(s => s.selected)
+    .filter((s) => s.selected)
     .reduce((sum, s) => sum + s.price, 0)
 
   const discountedMain = Math.round(totalMain * (1 - discount.value / 100))
@@ -65,7 +66,6 @@ const discountedPrice = computed(() => {
 
 const closePopup = () => {
   emit('close')
-
 }
 </script>
 <template>
@@ -86,7 +86,7 @@ const closePopup = () => {
               type="checkbox"
               :id="'service-' + index"
               v-model="service.selected"
-            >
+            />
             <span class="discount__checkbox-box">
               <svg
                 :class="{ visible: service.selected }"
@@ -115,9 +115,7 @@ const closePopup = () => {
         <p>
           Итог: <strong>{{ discountedPrice }}₽</strong>
         </p>
-        <p v-if="discount > 0">
-          Экономия: {{ fullPrice - discountedPrice }}₽
-        </p>
+        <p v-if="discount > 0">Экономия: {{ fullPrice - discountedPrice }}₽</p>
       </div>
 
       <div class="discount__price-button">
@@ -126,7 +124,6 @@ const closePopup = () => {
     </div>
   </div>
 </template>
-
 
 <style scoped lang="scss">
 @use '@/assets/styles/media.scss' as *;
@@ -146,7 +143,7 @@ const closePopup = () => {
 }
 
 .discount {
-  background: linear-gradient(13deg, #5b5e64, #d27ea7);
+  background: linear-gradient(13deg, #404044, #d27ea7);
   width: 60%;
   padding: 30px;
   color: var(--color-default-white);
@@ -224,7 +221,7 @@ const closePopup = () => {
         align-items: center;
         cursor: pointer;
         gap: 10px;
-        transition: color .3s ease-in-out;
+        transition: color 0.3s ease-in-out;
 
         @include vp-767 {
           gap: 5px;
@@ -245,7 +242,9 @@ const closePopup = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: background-color .2s ease, border-color .2s ease;
+          transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease;
 
           @include vp-767 {
             width: 15px;
@@ -329,5 +328,4 @@ const closePopup = () => {
 .fade-leave-from {
   opacity: 1;
 }
-
 </style>

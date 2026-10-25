@@ -1,18 +1,70 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
   <div class="video">
     <div class="container">
       <h1 class="video__title">Результат сразу после процедуры</h1>
       <div class="video__block">
-        <video src="../assets/img/video_1.mp4" width="300px" height="auto" muted playsinline controls autoplay loop></video>
-        <video src="../assets/img/video_2.mp4" width="300px" height="auto" muted playsinline controls autoplay loop></video>
-        <video src="../assets/img/video_3.mp4" width="300px" height="auto" muted playsinline controls autoplay loop></video>
-        <video src="../assets/img/video_4.mp4" width="300px" height="auto" muted playsinline controls autoplay loop></video>
-        <video src="../assets/img/video_5.mp4" width="300px" height="auto" muted playsinline controls autoplay loop></video>
-        <video src="../assets/img/video_6.mp4" width="300px" height="auto" muted playsinline controls autoplay loop></video>
+        <video
+          src="../assets/img/video_1.mp4"
+          width="auto"
+          height="500px"
+          muted
+          playsinline
+          controls
+          autoplay
+          loop
+        ></video>
+        <video
+          src="../assets/img/video_2.mp4"
+          width="auto"
+          height="500px"
+          muted
+          playsinline
+          controls
+          autoplay
+          loop
+        ></video>
+        <video
+          src="../assets/img/video_3.mp4"
+          width="auto"
+          height="500px"
+          muted
+          playsinline
+          controls
+          autoplay
+          loop
+        ></video>
+        <video
+          src="../assets/img/video_4.mp4"
+          width="auto"
+          height="500px"
+          muted
+          playsinline
+          controls
+          autoplay
+          loop
+        ></video>
+        <video
+          src="../assets/img/video_5.mp4"
+          width="auto"
+          height="500px"
+          muted
+          playsinline
+          controls
+          autoplay
+          loop
+        ></video>
+        <video
+          src="../assets/img/video_6.mp4"
+          width="auto"
+          height="500px"
+          muted
+          playsinline
+          controls
+          autoplay
+          loop
+        ></video>
       </div>
     </div>
   </div>
@@ -24,15 +76,15 @@
 
 .video {
   padding: 100px;
-  background-color: var(--color-can-can);
+  background-color: var(--color-bright-grey);
 
   @include vp-767 {
     padding: 40px 0;
   }
 
   .video__title {
-    color: var(--color-bright-grey);
-    font-size: 45px;
+    color: var(--color-default-white);
+    font-size: 36px;
     margin-bottom: 70px;
     text-align: center;
     text-transform: uppercase;
@@ -55,10 +107,9 @@
 
       @include vp-767 {
         width: auto;
-        height: 500px;
+        height: 285px;
       }
     }
   }
 }
-
 </style>

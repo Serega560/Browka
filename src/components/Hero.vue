@@ -1,5 +1,4 @@
-<script setup>
-</script>
+<script setup></script>
 
 <template>
   <div class="hero">
@@ -17,17 +16,19 @@
 @use '@/assets/styles/container.scss' as *;
 
 .hero {
-  height: 600px;
+  height: 800px;
   background-color: var(--color-default-black);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/img/main.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('../assets/img/main.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 78%;
+  background-position: center 30%;
 
   @include vp-767 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('../assets/img/main.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)),
+      url('../assets/img/main.jpg');
     background-position: center center;
-    height: 400px;
+    height: 500px;
     width: auto;
   }
 
@@ -59,15 +60,18 @@
       color: var(--color-default-white);
       font-size: clamp(16px, 3vw, 100px);
       width: 600px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 500;
 
       @include vp-767 {
         border: none;
         width: 70px;
         align-self: flex-end;
         padding-top: 150px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
       }
     }
   }
 }
-
 </style>

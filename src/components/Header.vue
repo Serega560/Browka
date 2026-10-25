@@ -12,7 +12,6 @@ import Telephone from '@/components/Telephone.vue'
 
         <Logo />
         <Menu />
-        <Social position="header"/>
         <Telephone />
 
       </div>
@@ -29,16 +28,19 @@ import Telephone from '@/components/Telephone.vue'
   display: flex;
   justify-content: space-between;
   background-color: var(--color-default-white);
+  width: 100%;
+
+  /* Можно добавить легкую тень, чтобы шапка не сливалась с белым фоном сайта */
+  /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); */
 
   .header-block {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
+    justify-content: space-between; /* Логотип слева, Меню (бургер) справа */
+    padding: 15px 0; /* Чуть увеличили отступы сверху и снизу для "воздуха" */
 
     @include vp-767 {
-      padding: 8px 0;
+      padding: 10px 0;
     }
   }
 }

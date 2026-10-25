@@ -14,11 +14,9 @@
   --color-scooter: #2d84aa; // telegram:hover
   --color-sky-blue: #7fcdee; // telegram:active
 
-
   --color-lime-green: #45d354; // whatsapp
   --color-fruit-salad: #34a740; // whatsapp:hover
   --color-pastel-green: #75e581; // whatsapp:active
-
 
   --color-havelock-blue: #5281b8; // vk
   --color-wedgewood: #40638c; // vk:hover
@@ -37,5 +35,29 @@ a {
   transition: all .3s ease-in-out;
   display: inline-block;
   border: 1px solid transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/CormorantGaramond-Medium.woff2') format('woff2'),
+  url('../fonts/CormorantGaramond-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  src: url('../fonts/CormorantGaramond-SemiBold.woff2') format('woff2'),
+  url('../fonts/CormorantGaramond-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 

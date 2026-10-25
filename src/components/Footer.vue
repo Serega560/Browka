@@ -3,22 +3,22 @@ import Logo from '@/components/Logo.vue'
 import Menu from '@/components/Menu.vue'
 import Social from '@/components/Social.vue'
 import Telephone from '@/components/Telephone.vue'
+import Dev from '@/components/Dev.vue'
 </script>
 
 <template>
-<div class="footer">
-  <div class="container">
-    <h2 class="footer__title">Контакты</h2>
-    <div class="footer__block">
-
-      <Logo position="footer" />
-      <Menu :inFooter="true" />
-      <Social position="footer"/>
-      <Telephone />
-
+  <div class="footer">
+    <div class="container">
+      <h2 class="footer__title">Контакты</h2>
+      <div class="footer__block">
+        <Logo position="footer" />
+        <Menu :inFooter="true" />
+        <Social position="footer" />
+        <Telephone />
+        <Dev />
+      </div>
     </div>
   </div>
-</div>
 </template>
 
 <style scoped lang="scss">
@@ -50,12 +50,14 @@ import Telephone from '@/components/Telephone.vue'
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
 
     @include vp-767 {
       justify-content: space-around;
       align-items: flex-start;
+      gap: 15px;
     }
   }
 }
-
 </style>

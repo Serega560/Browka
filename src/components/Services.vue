@@ -1,5 +1,4 @@
 <script setup>
-
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
@@ -12,7 +11,7 @@ const galleries = [
   {
     id: 1,
     title: 'Перманентный макияж бровей. Аппаратные волоски',
-    price: '10000Р',
+    price: '12 000 ₽',
     autoplayDelay: 3500,
     images: [
       'photo_2.1.jpg',
@@ -21,7 +20,7 @@ const galleries = [
       'photo_2.4.jpg',
       'photo_2.5.jpg',
       'photo_2.6.jpg'
-    ].map(name => ({
+    ].map((name) => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
@@ -30,7 +29,7 @@ const galleries = [
   {
     id: 2,
     title: 'Перманентный макияж бровей. Пудровое напыление',
-    price: '8000Р',
+    price: '8 000 ₽',
     autoplayDelay: 3000,
     images: [
       'photo_1.1.jpg',
@@ -39,7 +38,7 @@ const galleries = [
       'photo_1.4.jpg',
       'photo_1.5.jpg',
       'photo_1.6.jpg'
-    ].map(name => ({
+    ].map((name) => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
@@ -48,7 +47,7 @@ const galleries = [
   {
     id: 3,
     title: 'Перманентный макияж век',
-    price: '8000Р',
+    price: '8 000 ₽',
     autoplayDelay: 3800,
     images: [
       'photo_3.1.jpg',
@@ -60,7 +59,7 @@ const galleries = [
       'photo_3.7.jpg',
       'photo_3.8.jpg',
       'photo_3.9.jpg'
-    ].map(name => ({
+    ].map((name) => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
@@ -69,7 +68,7 @@ const galleries = [
   {
     id: 4,
     title: 'Перманентный макияж губ',
-    price: '8000Р',
+    price: '8 000 ₽',
     autoplayDelay: 3300,
     images: [
       'photo_4.1.jpg',
@@ -79,7 +78,7 @@ const galleries = [
       'photo_4.5.jpg',
       'photo_4.6.jpg',
       'photo_4.7.jpg'
-    ].map(name => ({
+    ].map((name) => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
@@ -88,7 +87,7 @@ const galleries = [
   {
     id: 5,
     title: 'Мини тату',
-    price: '4000Р',
+    price: '4 000 ₽',
     autoplayDelay: 3500,
     images: [
       'photo_5.1.jpg',
@@ -98,7 +97,7 @@ const galleries = [
       'photo_5.5.jpg',
       'photo_5.6.jpg',
       'photo_5.7.jpg'
-    ].map(name => ({
+    ].map((name) => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
@@ -106,8 +105,8 @@ const galleries = [
   },
   {
     id: 6,
-    title: 'Ламинирование ресниц.',
-    price: '2500Р',
+    title: 'Ламинирование ресниц',
+    price: '2 500 ₽',
     autoplayDelay: 3000,
     images: [
       'photo_7.1.jpg',
@@ -115,7 +114,7 @@ const galleries = [
       'photo_7.3.jpg',
       'photo_7.4.jpg',
       'photo_7.5.jpg'
-    ].map(name => ({
+    ].map((name) => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
@@ -124,7 +123,7 @@ const galleries = [
   {
     id: 7,
     title: 'Ламинирование бровей',
-    price: '2000Р',
+    price: '2 000 ₽',
     autoplayDelay: 3000,
     images: [
       'photo_6.1.jpg',
@@ -132,66 +131,66 @@ const galleries = [
       'photo_6.3.jpg',
       'photo_6.4.jpg',
       'photo_6.5.jpg'
-    ].map(name => ({
+    ].map((name) => ({
       webp1x: new URL(`../assets/img/services/${name}?format=webp&width=400`, import.meta.url).href,
       webp2x: new URL(`../assets/img/services/${name}?format=webp&width=800`, import.meta.url).href,
       fallback: new URL(`../assets/img/services/${name}?width=400`, import.meta.url).href
     }))
-  },
+  }
 ]
-
 </script>
 
 <template>
   <div class="services" id="services">
     <div class="container">
-      <h2 class="services__title">Мои услуги</h2>
+      <!-- Изменили заголовок и добавили подзаголовок для солидности -->
+      <div class="services__header">
+        <h2 class="services__title">Услуги студии</h2>
+        <p class="services__subtitle-text">Искусство перманентного макияжа и ухода</p>
+      </div>
+
       <ul class="services__list">
-        <li
-          v-for="(item, id) in galleries"
-          :key="item.id"
-          class="services__item"
-        >
-          <div class="services__main">
-            <div class="services__subtitle-price" :class="{ 'order-2': id % 2 === 1 }">
-              <h3 class="services__subtitle">{{ item.title }}</h3>
-              <div class="services__price-button">
-                <p class="services__price">{{ item.price }}</p>
+        <li v-for="(item, id) in galleries" :key="item.id" class="services__item">
+          <div class="services__main" :class="{ 'services__main--reversed': id % 2 === 1 }">
+            <!-- Текстовая часть -->
+            <div class="services__info">
+              <h3 class="services__item-title">{{ item.title }}</h3>
+
+              <div class="services__action">
+                <span class="services__price">{{ item.price }}</span>
                 <Button />
               </div>
             </div>
 
-            <Swiper lazy="true"
-                    :modules="modules"
-                    :slides-per-view="3"
-                    :loop="true"
-                    :speed="1000"
-                    :autoplay="{ delay: item.autoplayDelay, disableOnInteraction: false, pauseOnMouseEnter: false }"
-                    :class="['services__swiper', { 'swiper--reversed': id % 2 === 1 }]"
-                    :space-between="10"
-                    :breakpoints="{
-                      767: {slidesPerView: 2},
-                      1440: {slidesPerView: 4}
-                    }"
+            <!-- Слайдер с фото -->
+            <Swiper
+              lazy="true"
+              :modules="modules"
+              :slides-per-view="2"
+              :loop="true"
+              :speed="1000"
+              :autoplay="{
+                delay: item.autoplayDelay,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false
+              }"
+              class="services__swiper"
+              :space-between="15"
+              :breakpoints="{
+                767: { slidesPerView: 2, spaceBetween: 10 },
+                1440: { slidesPerView: 3 }
+              }"
             >
               <SwiperSlide v-for="(image, idx) in item.images" :key="idx">
-                <picture>
-                  <source
-                    :srcset="`${image.webp1x} 1x, ${image.webp2x} 2x`"
-                    type="image/webp"
-                  />
-                  <img
-                    :data-src="image.fallback"
-                    width="300"
-                    height="450"
-                    alt="фото услуги"
-                  />
-                </picture>
-                <div class="swiper-lazy-preloader"></div>
+                <div class="services__image-wrapper">
+                  <picture>
+                    <source :srcset="`${image.webp1x} 1x, ${image.webp2x} 2x`" type="image/webp" />
+                    <img :data-src="image.fallback" width="300" height="400" alt="Фото работы" />
+                  </picture>
+                  <div class="swiper-lazy-preloader"></div>
+                </div>
               </SwiperSlide>
-
             </Swiper>
-
           </div>
         </li>
       </ul>
@@ -204,161 +203,214 @@ const galleries = [
 @use '@/assets/styles/container.scss' as *;
 
 .services {
-  padding: 60px 0;
+  padding: 100px 0;
+  background-color: #faf9f8; /* Очень светлый, теплый фон, чтобы карточки выделялись */
 
   @include vp-767 {
-    padding: 40px 0;
+    padding: 60px 0;
+  }
+
+  .services__header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    @include vp-767 {
+      margin-bottom: 40px;
+    }
   }
 
   .services__title {
-    font-size: 36px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 56px;
     text-transform: uppercase;
-    text-align: center;
-    margin-bottom: 40px;
+    letter-spacing: 2px;
     color: var(--color-bright-grey);
+    margin: 0 0 15px 0;
+
+    @include vp-767 {
+      font-size: 32px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .services__subtitle-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--color-mulberry);
+    margin: 0;
 
     @include vp-767 {
       font-size: 18px;
-      margin-bottom: 20px;
     }
   }
 
   .services__list {
     display: flex;
     flex-direction: column;
-    gap: 40px 0;
+    gap: 80px 0; /* Больше воздуха между блоками */
+
+    @include vp-767 {
+      gap: 50px 0;
+    }
 
     .services__item {
-      border: 1px solid var(--color-can-can);
-      padding: 20px;
-      box-shadow: 0 5px 5px var(--color-can-can);
+      background: var(--color-default-white);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); /* Мягкая, дорогая тень */
+      transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
 
       @include vp-767 {
-        box-shadow: 0 1px 2px var(--color-can-can);
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px rgba(219, 85, 151, 0.1); /* Тень с розовым оттенком при наведении */
       }
     }
 
     .services__main {
       display: grid;
-      grid-template-columns: auto auto;
-      gap: 0 40px;
+      grid-template-columns: 1fr 1.5fr; /* Текст занимает 1 часть, фото - 1.5 */
+      gap: 50px;
+      align-items: center;
 
       @include vp-767 {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         gap: 20px;
+      }
+
+      /* Для четных элементов меняем местами фото и текст */
+      &--reversed {
+        grid-template-columns: 1.5fr 1fr;
+
+        @include vp-767 {
+          /* На мобилке для четных блоков тоже убираем грид */
+          display: flex;
+          flex-direction: column;
+        }
+
+        .services__info {
+          order: 2;
+          text-align: right;
+          align-items: flex-end;
+
+          @include vp-767 {
+            /* На мобилке текст всегда слева */
+            order: 1;
+            text-align: left;
+            align-items: flex-start;
+          }
+        }
+
+        .services__action {
+          justify-content: flex-end;
+          @include vp-767 {
+            justify-content: space-between;
+          }
+        }
+
+        .services__swiper {
+          order: 1;
+          @include vp-767 {
+            /* На мобилке фото всегда снизу */
+            order: 2;
+          }
+        }
       }
     }
   }
 
-  .services__subtitle-price {
+  .services__info {
     display: flex;
-    flex-wrap: wrap;
-    font-size: 35px;
-    font-weight: 600;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    order: 1;
-    width: 430px;
+    height: 100%;
 
-    @include vp-767 {
-      width: 100%;
-      justify-content: start;
-      gap: 20px 0;
-    }
-
-    &.order-2 {
-      order: 2;
-
-      @include vp-767 {
-        order: 1;
-      }
-    }
-
-    .services__subtitle {
-      font-size: 24px;
-      width: 450px;
-      text-transform: uppercase;
+    .services__item-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 500;
+      line-height: 1.2;
       color: var(--color-bright-grey);
+      margin: 0 0 30px 0;
 
       @include vp-767 {
-        font-size: 18px;
-        width: 100%;
-        text-transform: inherit;
-        font-weight: 400;
+        font-size: 24px;
+        margin-bottom: 20px;
       }
     }
 
-    .services__price-button {
+    .services__action {
       display: flex;
-      gap: 0 35px;
       align-items: center;
+      gap: 25px;
 
       @include vp-767 {
-        gap: 0 17px;
-        justify-content: flex-end;
+        justify-content: space-between;
         width: 100%;
       }
 
       .services__price {
-        color: var(--color-bright-grey);
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 32px;
+        font-weight: 500;
+        color: var(--color-deep-pink); /* Яркий акцент для цены */
 
         @include vp-767 {
-          font-size: 20px;
-          font-weight: 400;
-          width: 80px;
-          text-align: center;
+          font-size: 24px;
         }
       }
     }
   }
 
   .services__swiper {
-    order: 2;
-
-    @include vp-767 {
-      height: 220px;
-    }
-
-    &.swiper--reversed {
-      order: 1;
-    }
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
 
     :deep(.swiper-wrapper) {
-      height: 400px;
+      height: 380px; /* Фиксированная высота для ровной сетки */
 
       @include vp-767 {
-        gap: 0;
+        height: 250px;
       }
     }
 
     :deep(.swiper-slide) {
-      width: calc((100% - 30px) / 4) !important;
-      height: 400px;
-
-      @include vp-767 {
-        width: calc((100% - 5px) / 2) !important;
-      }
+      height: 100%;
+      border-radius: 15px;
+      overflow: hidden;
     }
 
-    .services__slide--left {
-      display: flex;
-      order: 2;
-    }
-
-    img {
-      object-fit: cover;
+    .services__image-wrapper {
       width: 100%;
-      border-radius: 20px;
-      height: 400px;
+      height: 100%;
 
-      @include vp-767 {
-        height: 220px;
-        border-radius: 10px;
+      picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease; /* Эффект зума */
+
+        &:hover {
+          transform: scale(1.05);
+        }
       }
     }
   }
 }
-
 </style>
