@@ -13,17 +13,45 @@ const initMap = () => {
   if (!window.ymaps) return
 
   window.ymaps.ready(() => {
-    mapInstance = new window.ymaps.Map('map', {
-      center: [55.641193, 37.50169],
-      zoom: 17
+    // Адаптивный зум
+    const width = window.innerWidth
+    let zoom = 11
+
+    if (width <= 480) {
+      zoom = 9
+    } else if (width <= 767) {
+      zoom = 10
+    }
+
+    // Создаем карту, привязываясь к ref-элементу
+    mapInstance = new window.ymaps.Map(mapContainer.value, {
+      center: [55.598, 37.655],
+      zoom: zoom,
     })
 
-    const placemark = new window.ymaps.Placemark([55.641193, 37.50169], {
-      hintContent: 'Browka',
-      balloonContent: 'Салон "Browka"'
-    })
+    // Салон №1 — Островитянова, 11
+    const salon1 = new window.ymaps.Placemark(
+      [55.641193, 37.501690],
+      {
+        hintContent: 'Browka — Коньково',
+        balloonContent:
+          'Салон "Browka"<br>Москва, ул. Островитянова, дом 11, кабинет 21',
+      }
+    )
 
-    mapInstance.geoObjects.add(placemark)
+    // Салон №2 — Пригородное шоссе, 18
+    const salon2 = new window.ymaps.Placemark(
+      [55.555645, 37.808197],
+      {
+        hintContent: 'Browka — Пригород Лесное',
+        balloonContent:
+          'Салон "Browka"<br>Московская область,<br>Пригородное шоссе, дом 18',
+      }
+    )
+
+    // Добавляем обе точки на карту
+    mapInstance.geoObjects.add(salon1)
+    mapInstance.geoObjects.add(salon2)
   })
 }
 
@@ -90,13 +118,30 @@ onBeforeUnmount(() => {
   <div class="map">
     <div class="container">
       <h2 class="map__title">Как найти салон</h2>
+
       <div class="map__block">
-        <div id="map" ref="mapContainer"></div>
+        <!-- Заменили id="map" на ref="mapContainer" для надежности -->
+        <div ref="mapContainer" id="map"></div>
+
         <div class="map__content">
-          <p class="map__text">
-            г. Москва, м. Коньково, м. Университет дружбы народов, ул. Островитянова д. 11, вход
-            "островок", кабинет 21
-          </p>
+          <div class="map__address">
+            <span class="map__number">1 салон</span>
+
+            <p class="map__text">
+              Москва, метро Коньково,<br>
+              ул. Островитянова, 11
+            </p>
+          </div>
+
+          <div class="map__address">
+            <span class="map__number">2 салон</span>
+
+            <p class="map__text">
+              Московская область, метро Домодедовская,<br>
+              выход 9, автобус 367Ш, 367П,<br>
+              Пригород Лесное, Пригородное шоссе, 18
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -135,9 +180,9 @@ onBeforeUnmount(() => {
     justify-content: center;
 
     #map {
-      height: 600px;
       width: 100%;
       background-color: #e5e5e5;
+      height: 600px;
 
       @include vp-767 {
         height: 400px;
@@ -145,16 +190,125 @@ onBeforeUnmount(() => {
     }
 
     .map__content {
-      .map__text {
-        font-size: 34px;
-        color: var(--color-default-white);
-        text-align: center;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
 
-        @include vp-767 {
-          font-size: 16px;
-        }
+      @include vp-767 {
+        flex-direction: column;
+        gap: 25px;
       }
     }
+
+    .map__address {
+      position: relative;
+      flex: 1;
+      max-width: 600px;
+      padding: 25px 30px;
+      text-align: center;
+
+      opacity: 0;
+      transform: translateY(20px);
+      animation: map-address-show 0.7s ease forwards;
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      @include vp-767 {
+        padding: 20px 10px;
+      }
+    }
+
+    .map__number {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 22px;
+      letter-spacing: 3px;
+      color: var(--color-default-white);
+      opacity: 0.5;
+    }
+
+    .map__text {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.5;
+      color: var(--color-default-white);
+      text-align: center;
+
+      transition: transform 0.5s ease;
+
+      @include vp-767 {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+
+    .map__address + .map__address {
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+
+      @include vp-767 {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+}
+
+
+// Эффект только для устройств с мышью
+@media (min-width: 768px) {
+  .map__address:hover .map__text {
+    transform: scale(1.08);
+
+    background: linear-gradient(
+        90deg,
+        #ff4d8d,
+        #a855f7,
+        #3b82f6,
+        #22d3ee,
+        #facc15,
+        #ff4d8d
+    );
+
+    background-size: 400% auto;
+    background-position: 0% center;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    animation: map-text-color 6s ease-in-out infinite;
+  }
+}
+
+// Плавное движение цветов
+@keyframes map-text-color {
+  0% {
+    background-position: 0% center;
+  }
+
+  50% {
+    background-position: 100% center;
+  }
+
+  100% {
+    background-position: 0% center;
+  }
+}
+
+
+// Появление адресов
+@keyframes map-address-show {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>

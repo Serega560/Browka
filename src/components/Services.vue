@@ -143,7 +143,6 @@ const galleries = [
 <template>
   <div class="services" id="services">
     <div class="container">
-      <!-- Изменили заголовок и добавили подзаголовок для солидности -->
       <div class="services__header">
         <h2 class="services__title">Услуги студии</h2>
         <p class="services__subtitle-text">Искусство перманентного макияжа и ухода</p>
@@ -162,7 +161,7 @@ const galleries = [
               </div>
             </div>
 
-            <!-- Слайдер с фото -->
+
             <Swiper
               lazy="true"
               :modules="modules"
@@ -204,7 +203,7 @@ const galleries = [
 
 .services {
   padding: 100px 0;
-  background-color: #faf9f8; /* Очень светлый, теплый фон, чтобы карточки выделялись */
+  background-color: #faf9f8;
 
   @include vp-767 {
     padding: 60px 0;
@@ -249,7 +248,7 @@ const galleries = [
   .services__list {
     display: flex;
     flex-direction: column;
-    gap: 80px 0; /* Больше воздуха между блоками */
+    gap: 80px 0;
 
     @include vp-767 {
       gap: 50px 0;
@@ -259,7 +258,7 @@ const galleries = [
       background: var(--color-default-white);
       border-radius: 30px;
       padding: 40px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04); /* Мягкая, дорогая тень */
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.04);
       transition:
         transform 0.4s ease,
         box-shadow 0.4s ease;
@@ -404,7 +403,7 @@ const galleries = [
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform 0.6s ease; /* Эффект зума */
+        transition: transform 0.6s ease;
 
         &:hover {
           transform: scale(1.05);
