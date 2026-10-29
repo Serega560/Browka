@@ -24,8 +24,13 @@ import Telegram from '@/assets/icons/telegram.svg'
   justify-content: center;
   gap: 15px;
   color: var(--color-default-white);
-  margin-top: 200px;
+  margin-top: -67px;
   margin-left: auto;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--color-mulberry);
+  }
 
   span {
     color: var(--color-default-white);
@@ -35,12 +40,6 @@ import Telegram from '@/assets/icons/telegram.svg'
     color: var(--color-bright-grey);
     width: 35px;
     height: 35px;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      color: var(--color-mulberry);
-    }
   }
 
   @include vp-767 {

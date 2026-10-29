@@ -10,6 +10,7 @@ import Dev from '@/components/Dev.vue'
   <div class="footer">
     <div class="container">
       <h2 class="footer__title">Контакты</h2>
+
       <div class="footer__block">
         <Logo position="footer" />
         <Menu :inFooter="true" />
@@ -48,7 +49,7 @@ import Dev from '@/components/Dev.vue'
 
   .footer__block {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 30px;

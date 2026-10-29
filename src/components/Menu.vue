@@ -59,10 +59,28 @@ defineProps({
 })
 
 const menuItems = [
-  { label: 'Услуги', href: '#services' },
+  { label: 'Услуги', href: '#services', hasSubmenu: true },
   { label: 'Работы', href: '#work' },
   { label: 'Расчет стоимости' }
 ]
+
+const services = [
+  { id: 1, title: 'Перманентный макияж бровей. Аппаратные волоски' },
+  { id: 2, title: 'Перманентный макияж бровей. Пудровое напыление' },
+  { id: 3, title: 'Перманентный макияж век' },
+  { id: 4, title: 'Перманентный макияж губ' },
+  { id: 5, title: 'Мини тату' },
+  { id: 6, title: 'Ламинирование ресниц' },
+  { id: 7, title: 'Ламинирование бровей' }
+]
+
+const scrollToService = (id) => {
+  const el = document.getElementById(`service-${id}`)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  closeMenu()
+}
 </script>
 
 <template>
@@ -88,22 +106,50 @@ const menuItems = [
         v-show="inFooter ? true : isMenuOpen || isDesktop"
       >
         <li v-for="(item, index) in menuItems" :key="index" class="menu__item">
-          <button
-            v-if="item.label === 'Расчет стоимости'"
-            class="menu__link"
-            type="button"
-            @click="
-              () => {
-                openDiscountPopup()
-                closeMenu()
-              }
-            "
-          >
-            {{ item.label }}
-          </button>
-          <a v-else class="menu__link" :href="item.href" @click="closeMenu">
-            {{ item.label }}
-          </a>
+          <!-- Пункт «Услуги» с подсписком (в футере всегда / в шапке только на мобилке) -->
+          <template v-if="item.hasSubmenu">
+            <a class="menu__link" :href="item.href" @click="closeMenu">
+              {{ item.label }}
+            </a>
+
+            <ul
+              v-if="inFooter || !isDesktop"
+              class="menu__services-list"
+            >
+              <li
+                v-for="service in services"
+                :key="service.id"
+                class="menu__services-item"
+              >
+                <button
+                  type="button"
+                  class="menu__service-link"
+                  @click="scrollToService(service.id)"
+                >
+                  {{ service.title }}
+                </button>
+              </li>
+            </ul>
+          </template>
+
+          <template v-else>
+            <button
+              v-if="item.label === 'Расчет стоимости'"
+              class="menu__link"
+              type="button"
+              @click="
+                () => {
+                  openDiscountPopup()
+                  closeMenu()
+                }
+              "
+            >
+              {{ item.label }}
+            </button>
+            <a v-else class="menu__link" :href="item.href" @click="closeMenu">
+              {{ item.label }}
+            </a>
+          </template>
         </li>
 
         <li class="menu__item menu__item--button" v-if="!inFooter">
@@ -170,7 +216,6 @@ const menuItems = [
       }
     }
 
-    /* Анимация превращения в крестик */
     &.active {
       transform: translateY(-50%);
       span:nth-child(1) {
@@ -189,7 +234,7 @@ const menuItems = [
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -207,14 +252,16 @@ const menuItems = [
       top: 0;
       text-align: center;
       background: linear-gradient(180deg, #ffffff 0%, #f8e6ef 100%);
-      padding: 100px 20px 40px; /* Увеличили верхний отступ, чтобы не наезжать на крестик */
-      z-index: 90; /* Чуть ниже бургера, чтобы крестик был кликабельным */
+      padding: 100px 20px 40px;
+      z-index: 90;
+      overflow-y: auto;
     }
 
     .menu__item {
       display: flex;
       width: auto;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: flex-start;
 
       @include vp-767 {
         width: 100%;
@@ -222,7 +269,6 @@ const menuItems = [
       }
     }
 
-    /* Кнопка Записаться */
     .menu__item--button {
       display: flex;
       justify-content: center;
@@ -259,6 +305,7 @@ const menuItems = [
         }
       }
     }
+
     .menu__socials {
       display: none;
       width: 100%;
@@ -269,7 +316,7 @@ const menuItems = [
         gap: 15px;
         margin-top: auto;
         padding-top: 10px;
-        margin-bottom: 70px;
+        margin-bottom: 85px;
         border-top: 1px solid rgba(0, 0, 0, 0.1);
       }
 
@@ -306,6 +353,7 @@ const menuItems = [
       transition: color 0.3s ease-in-out;
       text-align: left;
       width: auto;
+      text-decoration: none;
 
       @include vp-767 {
         font-size: 24px;
@@ -323,14 +371,86 @@ const menuItems = [
         }
       }
     }
+
+    .menu__services-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+      list-style: none;
+      padding: 10px 0 0 0;
+      margin: 0;
+
+      @include vp-767 {
+        align-items: center;
+        padding: 10px 0 0 0;
+        justify-content: center;
+      }
+    }
+
+    .menu__services-item {
+      text-align: left;
+
+      @include vp-767 {
+        text-align: center;
+        width: 250px;
+      }
+    }
+
+    .menu__service-link {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--color-bright-grey);
+      opacity: 0.75;
+      text-align: left;
+      line-height: 1.3;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      user-select: none;
+      transition: opacity 0.3s ease; /* только opacity, без color */
+
+      @include vp-767 {
+        font-size: 18px;
+        text-align: center;
+        color: var(--color-bright-grey) !important; /* фиксируем цвет */
+        opacity: 0.75 !important;
+
+        /* Убираем любые изменения при тапе */
+        &:hover,
+        &:active,
+        &:focus,
+        &:focus-visible {
+          color: var(--color-bright-grey) !important;
+          opacity: 0.75 !important;
+          outline: none !important;
+          background: none !important;
+          -webkit-tap-highlight-color: transparent;
+        }
+      }
+
+      /* На десктопе hover оставляем */
+      @media (min-width: 768px) {
+        &:hover {
+          opacity: 1;
+          color: var(--color-mulberry);
+        }
+      }
+    }
   }
 
   /* Футер */
   .menu__list--footer {
     all: unset;
     display: flex;
+    align-items: flex-start;
     list-style: none;
     gap: 12px;
+    flex-wrap: wrap;
+    max-width: 400px;
 
     @include vp-767 {
       flex-direction: column;
@@ -341,15 +461,15 @@ const menuItems = [
       padding: 5px 0;
 
       .menu__link {
-        color: white;
+        color: var(--color-default-white);
         font-size: 34px;
         align-self: flex-start;
 
         @include vp-767 {
           font-size: 18px;
           width: 85px;
-          text-align: center;
-          padding: 5px 15px;
+          text-align: left;
+          padding: 5px 15px 5px 0;
         }
 
         &:hover {
@@ -358,6 +478,67 @@ const menuItems = [
 
           @include vp-767 {
             color: var(--color-default-white);
+          }
+        }
+      }
+    }
+
+    .menu__services-list {
+      padding: 8px 0 0 0;
+      width: 300px;
+
+      @include vp-767 {
+        padding: 6px 0 0 0;
+        align-items: flex-start;
+        width: 195px;
+      }
+
+      .menu__services-item {
+        text-align: left;
+
+        @include vp-767 {
+          width: 195px;
+        }
+
+        .menu__service-link {
+          background: none;
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          font-family: inherit;
+          font-size: 22px;
+          color: var(--color-bright-grey);
+          opacity: 0.75;
+          transition: opacity 0.3s ease, color 0.3s ease;
+          text-align: left;
+          line-height: 1.3;
+
+          /* Убираем подсветку тапа на мобилке */
+          -webkit-tap-highlight-color: transparent;
+          -webkit-touch-callout: none;
+          user-select: none;
+
+          @include vp-767 {
+            font-size: 15px;
+            text-align: left;
+
+            &:active,
+            &:focus {
+              color: var(--color-bright-grey);
+              opacity: 0.75;
+              outline: none;
+              background: none;
+            }
+          }
+
+          &:hover {
+            opacity: 1;
+            color: var(--color-mulberry);
+
+            @include vp-767 {
+              opacity: 0.75;
+              color: var(--color-bright-grey);
+            }
           }
         }
       }

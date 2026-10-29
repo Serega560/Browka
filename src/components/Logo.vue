@@ -75,6 +75,7 @@ defineProps({
 
   &--footer {
     margin-top: 10px;
+    margin-right: 120px;
   }
 }
 </style>

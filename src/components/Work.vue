@@ -36,7 +36,11 @@ const images = [
   'photo_24.jpg',
   'photo_25.jpg',
   'photo_26.jpg',
-  'photo_27.jpg'
+  'photo_27.jpg',
+  'photo_28.jpg',
+  'photo_29.jpg',
+  'photo_30.jpg',
+  'photo_31.jpg'
 ].map(name => ({
   webp1x: new URL(`../assets/img/work/${name}?format=webp&width=400`, import.meta.url).href,
   fallback: new URL(`../assets/img/work/${name}?width=400`, import.meta.url).href

@@ -149,9 +149,14 @@ const galleries = [
       </div>
 
       <ul class="services__list">
-        <li v-for="(item, id) in galleries" :key="item.id" class="services__item">
+        <li
+          v-for="(item, id) in galleries"
+          :id="`service-${item.id}`"
+          :key="item.id"
+          class="services__item"
+        >
           <div class="services__main" :class="{ 'services__main--reversed': id % 2 === 1 }">
-            <!-- Текстовая часть -->
+
             <div class="services__info">
               <h3 class="services__item-title">{{ item.title }}</h3>
 
@@ -160,7 +165,6 @@ const galleries = [
                 <Button />
               </div>
             </div>
-
 
             <Swiper
               lazy="true"
@@ -262,6 +266,7 @@ const galleries = [
       transition:
         transform 0.4s ease,
         box-shadow 0.4s ease;
+      scroll-margin-top: 100px;
 
       @include vp-767 {
         padding: 20px;
@@ -270,13 +275,13 @@ const galleries = [
 
       &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 20px 50px rgba(219, 85, 151, 0.1); /* Тень с розовым оттенком при наведении */
+        box-shadow: 0 20px 50px rgba(219, 85, 151, 0.1);
       }
     }
 
     .services__main {
       display: grid;
-      grid-template-columns: 1fr 1.5fr; /* Текст занимает 1 часть, фото - 1.5 */
+      grid-template-columns: 1fr 1.5fr;
       gap: 50px;
       align-items: center;
 
@@ -286,12 +291,10 @@ const galleries = [
         gap: 20px;
       }
 
-      /* Для четных элементов меняем местами фото и текст */
       &--reversed {
         grid-template-columns: 1.5fr 1fr;
 
         @include vp-767 {
-          /* На мобилке для четных блоков тоже убираем грид */
           display: flex;
           flex-direction: column;
         }
@@ -302,7 +305,6 @@ const galleries = [
           align-items: flex-end;
 
           @include vp-767 {
-            /* На мобилке текст всегда слева */
             order: 1;
             text-align: left;
             align-items: flex-start;
@@ -319,7 +321,6 @@ const galleries = [
         .services__swiper {
           order: 1;
           @include vp-767 {
-            /* На мобилке фото всегда снизу */
             order: 2;
           }
         }
@@ -361,7 +362,7 @@ const galleries = [
         font-family: 'Cormorant Garamond', serif;
         font-size: 32px;
         font-weight: 500;
-        color: var(--color-deep-pink); /* Яркий акцент для цены */
+        color: var(--color-deep-pink);
 
         @include vp-767 {
           font-size: 24px;
@@ -376,7 +377,7 @@ const galleries = [
     overflow: hidden;
 
     :deep(.swiper-wrapper) {
-      height: 380px; /* Фиксированная высота для ровной сетки */
+      height: 380px;
 
       @include vp-767 {
         height: 250px;
